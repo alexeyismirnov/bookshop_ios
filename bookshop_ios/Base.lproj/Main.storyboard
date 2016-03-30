@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="49" y="-92"/>
         </scene>
-        <!--View Controller-->
+        <!--Books View Controller-->
         <scene sceneID="MMn-7d-F4F">
             <objects>
-                <viewController id="RZV-Fe-Fmb" sceneMemberID="viewController">
+                <viewController id="RZV-Fe-Fmb" customClass="BooksViewController" customModule="bookshop_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="42H-U6-cEo"/>
                         <viewControllerLayoutGuide type="bottom" id="Sk4-O4-b9x"/>
@@ -37,15 +37,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jfF-to-uAM"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="dataSourceId">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wy-vY-Aud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2045" y="-384"/>
         </scene>
-        <!--View Controller-->
+        <!--Books View Controller-->
         <scene sceneID="VjD-Qi-qxu">
             <objects>
-                <viewController id="D1Z-90-lGe" sceneMemberID="viewController">
+                <viewController id="D1Z-90-lGe" customClass="BooksViewController" customModule="bookshop_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CSV-N9-9Dq"/>
                         <viewControllerLayoutGuide type="bottom" id="Q7M-pe-WZx"/>
@@ -56,15 +61,82 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="i5s-6T-jW2"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="dataSourceId">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMs-AZ-c4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2456" y="429"/>
+            <point key="canvasLocation" x="2028" y="413"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="b04-P8-f8F">
+            <objects>
+                <tableViewController storyboardIdentifier="BooksTableView" id="PfX-iZ-KR4" customClass="TableViewController" customModule="bookshop_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="adT-ri-pXX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="FUm-fE-P8u">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FUm-fE-P8u" id="db1-q2-rqB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PfX-iZ-KR4" id="p50-Dv-4gT"/>
+                            <outlet property="delegate" destination="PfX-iZ-KR4" id="84v-xw-nq7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6n-67-1DQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="-1241"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="eVr-s0-g9s">
+            <objects>
+                <collectionViewController storyboardIdentifier="BooksCollectionView" id="IYu-0v-Xii" customClass="CollectionViewController" customModule="bookshop_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="a6X-pO-hCA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v1o-Ca-mZM">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WwI-4u-cwp">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="IYu-0v-Xii" id="aW3-6g-7c3"/>
+                            <outlet property="delegate" destination="IYu-0v-Xii" id="KVe-Ks-iTA"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZx-Jw-SFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="-1278"/>
         </scene>
         <!--Library-->
         <scene sceneID="EIM-uo-14e">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="saY-Ma-ff8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LibraryTab" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saY-Ma-ff8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="library" id="NqM-eD-b0L"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -84,7 +156,7 @@
         <!--My books-->
         <scene sceneID="C7g-rQ-awj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YMx-0d-FDk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MyBooksTab" automaticallyAdjustsScrollViewInsets="NO" id="YMx-0d-FDk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My books" image="mybooks" id="43o-NY-3F6"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

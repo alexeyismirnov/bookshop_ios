@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if prefs.objectForKey("language") == nil {
             
             prefs.setObject("en", forKey: "language")
-            prefs.setObject("viewType", forKey: "list")
+            prefs.setObject("list", forKey: "viewType")
         }
         
         let language = prefs.objectForKey("language") as! String

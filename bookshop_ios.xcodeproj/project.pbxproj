@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AE43D501CAB75CD00B59632 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE43D4F1CAB75CD00B59632 /* Model.swift */; };
+		8AE43D521CAB837900B59632 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE43D511CAB837900B59632 /* CFNetwork.framework */; };
+		8AE43D541CAB838100B59632 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE43D531CAB838100B59632 /* Security.framework */; };
+		8AE43D561CAB838800B59632 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE43D551CAB838800B59632 /* SystemConfiguration.framework */; };
 		8AE53C2F1CAA1C73005BFA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */; };
 		8AE53C341CAA1C73005BFA1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C321CAA1C73005BFA1B /* Main.storyboard */; };
 		8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C351CAA1C73005BFA1B /* Assets.xcassets */; };
@@ -17,12 +21,22 @@
 		8AE53C4B1CAA2EDE005BFA1B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C4A1CAA2EDE005BFA1B /* Translate.swift */; };
 		8AE53C4D1CAA2FEA005BFA1B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C4C1CAA2FEA005BFA1B /* Extensions.swift */; };
 		8AE53C4F1CAA3328005BFA1B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C4E1CAA3328005BFA1B /* MainVC.swift */; };
+		8AE53C511CAA5FE0005BFA1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C501CAA5FE0005BFA1B /* ViewController.swift */; };
+		8AE53C531CAA7191005BFA1B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C521CAA7191005BFA1B /* TableViewController.swift */; };
+		8AE53C551CAA72BC005BFA1B /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C541CAA72BC005BFA1B /* CollectionViewController.swift */; };
 		CD1A29EE33AD7DF0E048EC2A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D17F6CA7DD29F30AA015ED /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0415D24D4F3E2D4AEFE4EB0C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		85A10100191D5C2284D78DEB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8AE43D4F1CAB75CD00B59632 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8AE43D511CAB837900B59632 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8AE43D531CAB838100B59632 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8AE43D551CAB838800B59632 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8AE43D571CAB83E100B59632 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8AE43D591CAB83E900B59632 /* libFirebase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFirebase.a; path = "Pods/../build/Debug-iphoneos/libFirebase.a"; sourceTree = "<group>"; };
+		8AE43D5B1CAB856000B59632 /* bookshop_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bookshop_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		8AE53C2B1CAA1C73005BFA1B /* bookshop_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookshop_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE53C331CAA1C73005BFA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,6 +49,9 @@
 		8AE53C4A1CAA2EDE005BFA1B /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		8AE53C4C1CAA2FEA005BFA1B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8AE53C4E1CAA3328005BFA1B /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		8AE53C501CAA5FE0005BFA1B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AE53C521CAA7191005BFA1B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		8AE53C541CAA72BC005BFA1B /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		F1D17F6CA7DD29F30AA015ED /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE43D561CAB838800B59632 /* SystemConfiguration.framework in Frameworks */,
+				8AE43D541CAB838100B59632 /* Security.framework in Frameworks */,
+				8AE43D521CAB837900B59632 /* CFNetwork.framework in Frameworks */,
 				CD1A29EE33AD7DF0E048EC2A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,12 +103,17 @@
 				8AE53C431CAA2B8E005BFA1B /* icons */,
 				8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */,
 				8AE53C4E1CAA3328005BFA1B /* MainVC.swift */,
+				8AE43D4F1CAB75CD00B59632 /* Model.swift */,
+				8AE53C501CAA5FE0005BFA1B /* ViewController.swift */,
+				8AE53C521CAA7191005BFA1B /* TableViewController.swift */,
+				8AE53C541CAA72BC005BFA1B /* CollectionViewController.swift */,
 				8AE53C4A1CAA2EDE005BFA1B /* Translate.swift */,
 				8AE53C4C1CAA2FEA005BFA1B /* Extensions.swift */,
 				8AE53C321CAA1C73005BFA1B /* Main.storyboard */,
 				8AE53C351CAA1C73005BFA1B /* Assets.xcassets */,
 				8AE53C371CAA1C73005BFA1B /* LaunchScreen.storyboard */,
 				8AE53C3A1CAA1C73005BFA1B /* Info.plist */,
+				8AE43D5B1CAB856000B59632 /* bookshop_ios-Bridging-Header.h */,
 			);
 			path = bookshop_ios;
 			sourceTree = "<group>";
@@ -106,6 +131,11 @@
 		DF46A29C60AE84CCB1D178AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AE43D591CAB83E900B59632 /* libFirebase.a */,
+				8AE43D571CAB83E100B59632 /* libc++.tbd */,
+				8AE43D551CAB838800B59632 /* SystemConfiguration.framework */,
+				8AE43D531CAB838100B59632 /* Security.framework */,
+				8AE43D511CAB837900B59632 /* CFNetwork.framework */,
 				F1D17F6CA7DD29F30AA015ED /* libPods.a */,
 			);
 			name = Frameworks;
@@ -236,10 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE53C511CAA5FE0005BFA1B /* ViewController.swift in Sources */,
+				8AE53C531CAA7191005BFA1B /* TableViewController.swift in Sources */,
 				8AE53C4F1CAA3328005BFA1B /* MainVC.swift in Sources */,
 				8AE53C2F1CAA1C73005BFA1B /* AppDelegate.swift in Sources */,
+				8AE53C551CAA72BC005BFA1B /* CollectionViewController.swift in Sources */,
 				8AE53C4B1CAA2EDE005BFA1B /* Translate.swift in Sources */,
 				8AE53C4D1CAA2FEA005BFA1B /* Extensions.swift in Sources */,
+				8AE43D501CAB75CD00B59632 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,8 +389,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = bookshop_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.bookshop-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bookshop_ios/bookshop_ios-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -367,8 +406,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = bookshop_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.bookshop-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bookshop_ios/bookshop_ios-Bridging-Header.h";
 			};
 			name = Release;
 		};
