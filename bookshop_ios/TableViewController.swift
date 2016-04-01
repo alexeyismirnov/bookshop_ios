@@ -16,17 +16,19 @@ class TableViewController : UITableViewController, MVCInterface {
         super.viewDidLoad()
         
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate.model.books.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BookCell", forIndexPath: indexPath)
+        
         cell.textLabel!.text = delegate.model.books[indexPath.row].title
+        cell.imageView?.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
+        
         return cell
     }
-        
 
     func reload() {
         tableView.reloadData()

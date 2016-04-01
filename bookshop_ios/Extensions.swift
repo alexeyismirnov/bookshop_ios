@@ -130,6 +130,47 @@ extension UIImage {
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         return scaledImage
     }
+}
 
+extension UIImageView {
+    func downloadedFrom(link link:String, contentMode mode: UIViewContentMode, cell: UIView) {
+        guard let url = NSURL(string: link) else { return }
+
+        contentMode = mode
+        image = nil
+        
+        let fileManager = NSFileManager.defaultManager()
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        guard let documentDirectory:NSURL = urls.first else { return }
+        
+        let localURL = documentDirectory.URLByAppendingPathComponent(url.lastPathComponent!)
+            
+        if localURL.checkResourceIsReachableAndReturnError(nil) {
+            let data = NSData(contentsOfURL: localURL)!
+            image = UIImage(data: data)
+            return
+        }
+        
+        print("loading \(link)")
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+            guard
+                let httpURLResponse = response as? NSHTTPURLResponse where httpURLResponse.statusCode == 200,
+                let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
+                let data = data where error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            
+            try? data.writeToURL(localURL, options: .DataWritingWithoutOverwriting)
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.image = image
+                
+                cell.setNeedsLayout()
+                cell.setNeedsUpdateConstraints()
+                cell.setNeedsDisplay()
+            }
+        }).resume()
+    }
 }
 
