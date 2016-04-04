@@ -14,20 +14,42 @@ class TableViewController : UITableViewController, MVCInterface {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate.model.books.count
     }
     
+    func getCell() -> TableViewCell {
+        if let cell = tableView.dequeueReusableCellWithIdentifier("BookCell") as? TableViewCell {
+            return cell
+            
+        } else {
+            return UITableViewCell(style:.Default, reuseIdentifier: "BookCell") as! TableViewCell
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BookCell", forIndexPath: indexPath)
+        let cell = getCell()
         
-        cell.textLabel!.text = delegate.model.books[indexPath.row].title
-        cell.imageView?.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
+        cell.title!.text = delegate.model.books[indexPath.row].title
+        cell.icon!.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
         
         return cell
+    }
+    
+    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return size.height+1.0
+    }
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        return calculateHeightForCell(cell)
     }
 
     func reload() {

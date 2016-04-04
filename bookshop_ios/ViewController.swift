@@ -8,6 +8,8 @@
 
 import UIKit
 
+let viewTypeChangedNotification = "viewTypeChanged"
+
 protocol MVCInterface : class {
     var delegate : BooksViewController! { get set }
     func reload()
@@ -22,14 +24,29 @@ enum DataSource : Int {
 }
 
 class BooksViewController: UIViewController {
+    let prefs = NSUserDefaults.standardUserDefaults()
+
     var dataSourceId: NSNumber!
     var viewType : ViewType!
-    
+
     var currentView : MVCInterface!
     var model : BooksModel!
     
+    var viewListButton : UIBarButtonItem!
+    var viewGridButton : UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewListButton = UIBarButtonItem(image: UIImage(named: "view_list"),
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(BooksViewController.switchViewType))
+        
+        viewGridButton = UIBarButtonItem(image: UIImage(named: "view_grid"),
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(BooksViewController.switchViewType))
 
         createModel()
         createViewController()
@@ -37,6 +54,11 @@ class BooksViewController: UIViewController {
         model.load() {
             self.currentView.reload()
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(BooksViewController.createViewController),
+                                                         name: viewTypeChangedNotification,
+                                                         object: nil)
     }
     
     func createModel() {
@@ -52,25 +74,24 @@ class BooksViewController: UIViewController {
     }
     
     func createViewController() {
-        let prefs = NSUserDefaults.standardUserDefaults()
-
         viewType = (prefs.objectForKey("viewType") as! String == "list") ? .ListView : .GridView
         let controllerId = (viewType == .ListView) ? "BooksTableView" : "BooksCollectionView"
 
-        /*
-        if let _ = currentView {
-            navigationController?.popViewControllerAnimated(false)
-        }
-*/
+        navigationController?.popViewControllerAnimated(false)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        currentView = storyboard.instantiateViewControllerWithIdentifier(controllerId) as! MVCInterface
+        currentView = storyboard!.instantiateViewControllerWithIdentifier(controllerId) as! MVCInterface
         currentView.delegate = self
         
-        let fakeButton = UIBarButtonItem(title: "", style: .Plain, target: self, action: Selector(""))
-        (currentView as! UIViewController).navigationItem.leftBarButtonItem = fakeButton
+        (currentView as! UIViewController).navigationItem.leftBarButtonItem = (viewType == .ListView) ? viewGridButton : viewListButton
 
         navigationController?.pushViewController(currentView as! UIViewController, animated: false)
+    }
+    
+    func switchViewType() {
+        prefs.setObject((viewType == .ListView) ? "grid" : "list", forKey: "viewType")
+        prefs.synchronize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(viewTypeChangedNotification, object: self)
     }
     
 }

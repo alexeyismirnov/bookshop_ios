@@ -42,7 +42,7 @@ class FirebaseModel : BooksModel {
     
     override func load(completion: () -> Void) {
         books = []
-
+        
         ref.queryOrderedByChild("date_created").observeEventType(.Value, withBlock: { snapshot in
             var newItems = [BookData]()
 
