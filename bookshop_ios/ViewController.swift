@@ -34,6 +34,7 @@ class BooksViewController: UIViewController {
     
     var viewListButton : UIBarButtonItem!
     var viewGridButton : UIBarButtonItem!
+    var optionsButton :  UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,11 @@ class BooksViewController: UIViewController {
                                          style: .Plain,
                                          target: self,
                                          action: #selector(BooksViewController.switchViewType))
+
+        optionsButton = UIBarButtonItem(image: UIImage(named: "options"),
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(BooksViewController.showOptions))
 
         createModel()
         createViewController()
@@ -83,6 +89,7 @@ class BooksViewController: UIViewController {
         currentView.delegate = self
         
         (currentView as! UIViewController).navigationItem.leftBarButtonItem = (viewType == .ListView) ? viewGridButton : viewListButton
+        (currentView as! UIViewController).navigationItem.rightBarButtonItem = optionsButton
 
         navigationController?.pushViewController(currentView as! UIViewController, animated: false)
     }
@@ -92,6 +99,19 @@ class BooksViewController: UIViewController {
         prefs.synchronize()
         
         NSNotificationCenter.defaultCenter().postNotificationName(viewTypeChangedNotification, object: self)
+    }
+    
+    func showOptions() {
+
+    }
+    
+    func tap(index: NSIndexPath) {
+        let nav = storyboard!.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
+        let vc = nav.topViewController as! DetailsViewController
+                
+        vc.bookIndex = model.books[index.row].key
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
     }
     
 }

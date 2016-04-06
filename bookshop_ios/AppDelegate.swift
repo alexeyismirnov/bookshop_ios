@@ -12,6 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    override init() {
+        super.init()
+        Firebase.defaultConfig().persistenceEnabled = true
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -20,7 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if prefs.objectForKey("language") == nil {
             
             prefs.setObject("en", forKey: "language")
-            prefs.setObject("list", forKey: "viewType")
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                prefs.setObject("grid", forKey: "viewType")
+                
+            } else {
+                prefs.setObject("list", forKey: "viewType")
+            }
         }
         
         let language = prefs.objectForKey("language") as! String

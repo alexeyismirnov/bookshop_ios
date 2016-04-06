@@ -47,11 +47,20 @@ class TableViewController : UITableViewController, MVCInterface {
         return size.height+1.0
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {        
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         return calculateHeightForCell(cell)
     }
 
+    @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
+        let loc = gestureRecognizer.locationInView(tableView)
+        
+        if let path = tableView?.indexPathForRowAtPoint(loc) {
+            delegate.tap(path)
+        }
+        
+    }
+    
     func reload() {
         tableView.reloadData()
     }

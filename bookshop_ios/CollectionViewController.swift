@@ -34,12 +34,27 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(135, 180)
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            return CGSizeMake(210, 270)
+            
+        } else {
+            return CGSizeMake(135, 180)
+            
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 
         return UIEdgeInsetsMake(10, 10, 10, 10);
+    }
+    
+    @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
+        let loc = gestureRecognizer.locationInView(collectionView)
+        
+        if let path = collectionView?.indexPathForItemAtPoint(loc) {
+            delegate.tap(path)
+        }
     }
     
     func reload() {

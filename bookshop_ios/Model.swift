@@ -34,7 +34,7 @@ class BooksModel {
 }
 
 class FirebaseModel : BooksModel {
-    let ref = Firebase(url: "\(Firebase_url)/books")
+    let ref = Firebase(url: "\(Firebase_url)/index")
     
     required init() {
         super.init()

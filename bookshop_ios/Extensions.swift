@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum UIUserInterfaceIdiom : Int {
+    case Unspecified
+    case Phone // iPhone and iPod touch style UI
+    case Pad // iPad style UI
+}
+
 func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> NSMutableAttributedString? {
     
     if let rightArg = arg2 {
