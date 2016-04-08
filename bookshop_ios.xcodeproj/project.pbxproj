@@ -15,6 +15,8 @@
 		8A546AF21CB74F4D0090CFDA /* flag_cn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AEF1CB74F4D0090CFDA /* flag_cn.pdf */; };
 		8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AF01CB74F4D0090CFDA /* flag_hk.pdf */; };
 		8A546AF41CB74F4D0090CFDA /* flag_ru.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AF11CB74F4D0090CFDA /* flag_ru.pdf */; };
+		8A67FC561CB797C700F00B8C /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A67FC551CB797C700F00B8C /* Firebase.framework */; };
+		8A67FC581CB7995C00F00B8C /* FolioReaderKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A67FC571CB7995C00F00B8C /* FolioReaderKit.framework */; };
 		8AC4A97E1CB2257300C3907E /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4A97D1CB2257300C3907E /* RWLabel.swift */; };
 		8AC4A9801CB2274300C3907E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4A97F1CB2274300C3907E /* TableViewCell.swift */; };
 		8AE43D501CAB75CD00B59632 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE43D4F1CAB75CD00B59632 /* Model.swift */; };
@@ -35,7 +37,7 @@
 		8AE53C531CAA7191005BFA1B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C521CAA7191005BFA1B /* TableViewController.swift */; };
 		8AE53C551CAA72BC005BFA1B /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C541CAA72BC005BFA1B /* CollectionViewController.swift */; };
 		8AE8D98B1CB3CEAE00B8D339 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8D98A1CB3CEAE00B8D339 /* DetailsViewController.swift */; };
-		CD1A29EE33AD7DF0E048EC2A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D17F6CA7DD29F30AA015ED /* libPods.a */; };
+		D64197544261FAD5CDDE4F6D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE48061BB4B444139FA94CFF /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		8A546AEF1CB74F4D0090CFDA /* flag_cn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_cn.pdf; sourceTree = "<group>"; };
 		8A546AF01CB74F4D0090CFDA /* flag_hk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_hk.pdf; sourceTree = "<group>"; };
 		8A546AF11CB74F4D0090CFDA /* flag_ru.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_ru.pdf; sourceTree = "<group>"; };
+		8A67FC551CB797C700F00B8C /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = "../../Library/Developer/Xcode/DerivedData/bookshop_ios-frtuihonzhjiymdajgsnpbztawzh/Build/Products/Debug-iphonesimulator/Firebase.framework"; sourceTree = "<group>"; };
+		8A67FC571CB7995C00F00B8C /* FolioReaderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FolioReaderKit.framework; path = "../../Library/Developer/Xcode/DerivedData/bookshop_ios-frtuihonzhjiymdajgsnpbztawzh/Build/Products/Debug-iphonesimulator/FolioReaderKit.framework"; sourceTree = "<group>"; };
 		8AC4A97D1CB2257300C3907E /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
 		8AC4A97F1CB2274300C3907E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8AE43D4F1CAB75CD00B59632 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 		8AE53C521CAA7191005BFA1B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		8AE53C541CAA72BC005BFA1B /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		8AE8D98A1CB3CEAE00B8D339 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		F1D17F6CA7DD29F30AA015ED /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE48061BB4B444139FA94CFF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A67FC581CB7995C00F00B8C /* FolioReaderKit.framework in Frameworks */,
+				8A67FC561CB797C700F00B8C /* Firebase.framework in Frameworks */,
 				8AE43D561CAB838800B59632 /* SystemConfiguration.framework in Frameworks */,
 				8AE43D541CAB838100B59632 /* Security.framework in Frameworks */,
 				8AE43D521CAB837900B59632 /* CFNetwork.framework in Frameworks */,
-				CD1A29EE33AD7DF0E048EC2A /* libPods.a in Frameworks */,
+				D64197544261FAD5CDDE4F6D /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,12 +170,14 @@
 		DF46A29C60AE84CCB1D178AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A67FC571CB7995C00F00B8C /* FolioReaderKit.framework */,
+				8A67FC551CB797C700F00B8C /* Firebase.framework */,
 				8AE43D591CAB83E900B59632 /* libFirebase.a */,
 				8AE43D571CAB83E100B59632 /* libc++.tbd */,
 				8AE43D551CAB838800B59632 /* SystemConfiguration.framework */,
 				8AE43D531CAB838100B59632 /* Security.framework */,
 				8AE43D511CAB837900B59632 /* CFNetwork.framework */,
-				F1D17F6CA7DD29F30AA015ED /* libPods.a */,
+				EE48061BB4B444139FA94CFF /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

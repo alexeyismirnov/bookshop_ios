@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 let Firebase_url = "https://torrid-inferno-5814.firebaseio.com"
 

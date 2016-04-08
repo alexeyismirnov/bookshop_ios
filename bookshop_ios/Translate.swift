@@ -13,26 +13,35 @@ import UIKit
     private static var dict = [String:String]()
     static var defaultLanguage = "en"
     static var locale  = NSLocale(localeIdentifier: "en")
-    static var files = [String]()
-    
-    static var language:String = defaultLanguage {
+
+    static var files = [String]() {
         didSet {
-            // FIXME
-            locale = NSLocale(localeIdentifier: "en")
-            
-            if language == defaultLanguage {
-                return
-            }
-            
-            dict = [:]
-            
-            for (_, file) in files.enumerate() {
-                let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
-                let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
-                
-                dict += newDict
-            }
+            reloadFiles()
         }
+    }
+    
+    static var language = NSUserDefaults.standardUserDefaults().stringForKey("language")!  {
+        didSet {
+            reloadFiles()
+        }
+    }
+    
+    static func reloadFiles() {
+        // FIXME
+        locale = NSLocale(localeIdentifier: "en")
+        
+        if language == defaultLanguage {
+            return
+        }
+        
+        dict = [:]
+        
+        for file in files {
+            let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
+            let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
+            dict += newDict
+        }
+        
     }
     
     static func s(str : String) -> String {
