@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let prefs = NSUserDefaults.standardUserDefaults()
         
         if prefs.objectForKey("language") == nil {
-            
             prefs.setObject("en", forKey: "language")
             
             if UIDevice.currentDevice().userInterfaceIdiom == .Pad {

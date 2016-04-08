@@ -20,27 +20,44 @@ for book in  r.json():
     download_url = book["fields"]["download_url"]
     if download_url and "paidbooks" not in download_url:
 
-        output["index"][book["pk"]] = { "title"         : book["fields"]["title_en"],
+        output["index"][book["pk"]] = { "title_en"         : book["fields"]["title_en"],
+                                        "title_ru"         : book["fields"]["title_ru"],
+                                        "title_zh_cn"      : book["fields"]["title_zh_cn"],
+                                        "title_zh_hk"      : book["fields"]["title_zh_hk"],
                                         "date_created"  : book["fields"]["date_created"],
                                         "image"         : "http://orthodoxbookshop.asia/media/" + images[book["pk"]]
         }
+
 
 for book in  r.json():
     download_url = book["fields"]["download_url"]
     if download_url and "paidbooks" not in download_url:
 
-        description = book["fields"]["description_en"].replace('\r\n', '')
-        t = lxml.html.fromstring(description)
+        description_en = book["fields"]["description_en"].replace('\r\n', '')
+        description_ru = book["fields"]["description_ru"].replace('\r\n', '')
+        #if "description_ru" in book["fields"] else ""
+        description_zh_cn = book["fields"]["description_zh_cn"].replace('\r\n', '')
+        description_zh_hk = book["fields"]["description_zh_hk"].replace('\r\n', '')
 
-        output["details"][book["pk"]] = { "title"       : book["fields"]["title_en"],
-                                        "description"   : t.text_content(),
-                                        "date_created"  : book["fields"]["date_created"],
-                                        "image"         : "http://orthodoxbookshop.asia/media/" + images[book["pk"]],
-                                        "author"        : book["fields"]["author_en"],
-                                        "translator"    : book["fields"]["translator"],
-                                        "language"      : book["fields"]["text_script"],
-                                        "pages"         : str(book["fields"]["num_pages"]),
-                                        "publisher"     : book["fields"]["publisher"],
+        output["details"][book["pk"]] = {
+                                        "title_en"          : book["fields"]["title_en"],
+                                        "title_ru"          : book["fields"]["title_ru"],
+                                        "title_zh_cn"       : book["fields"]["title_zh_cn"],
+                                        "title_zh_hk"       : book["fields"]["title_zh_hk"],
+                                "description_en"    : lxml.html.fromstring(description_en).text_content(),
+                                "description_ru"    : lxml.html.fromstring(description_ru).text_content() if len(description_ru) > 0 else "",
+                                "description_zh_cn" : lxml.html.fromstring(description_zh_cn).text_content() if len(description_zh_cn) > 0 else "",
+                                "description_zh_hk" : lxml.html.fromstring(description_zh_hk).text_content() if len(description_zh_hk) > 0 else "",
+                                        "date_created"      : book["fields"]["date_created"],
+                                        "image"             : "http://orthodoxbookshop.asia/media/" + images[book["pk"]],
+                                        "author_en"         : book["fields"]["author_en"],
+                                        "author_ru"         : book["fields"]["author_ru"],
+                                        "author_zh_cn"      : book["fields"]["author_zh_cn"],
+                                        "author_zh_hk"      : book["fields"]["author_zh_hk"],
+                                        "translator"       : book["fields"]["translator"],
+                                        "language"         : book["fields"]["text_script"],
+                                        "pages"            : str(book["fields"]["num_pages"]),
+                                        "publisher"        : book["fields"]["publisher"],
         }
 
 with io.open('books.json', 'w', encoding='utf-8') as f:

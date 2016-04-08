@@ -9,6 +9,7 @@
 import UIKit
 
 var optionsSavedNotification  = "OPTIONS_SAVED"
+let languages = ["en", "ru", "zh_cn", "zh_hk"]
 
 class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAnimatedTransitioning {
 

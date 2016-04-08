@@ -31,13 +31,18 @@ class DetailsViewController : UITableViewController {
         let ref = Firebase(url: "\(Firebase_url)/details/\(bookIndex)")
         
         ref.observeEventType(.Value, withBlock: { snapshot  in
-            let title = snapshot.value["title"] as! String
+            let title = snapshot.value["title_\(Translate.language)"] as! String
             let image = snapshot.value["image"] as! String
-            let description = snapshot.value["description"] as! String
-            
+            let description = snapshot.value["description_\(Translate.language)"] as! String
             
             for (code,_) in self.detailsSchema {
-                self.details[code] = snapshot.value[code] as! String
+                if code == "author" {
+                    self.details[code] = snapshot.value["author_\(Translate.language)"] as! String
+                    
+                } else {
+                    self.details[code] = snapshot.value[code] as! String
+                    
+                }
             }
             
             let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))

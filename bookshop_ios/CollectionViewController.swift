@@ -27,7 +27,7 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
             return cell
         }
         
-        cell.title!.text = delegate.model.books[indexPath.row].title
+        cell.title!.text = delegate.model.books[indexPath.row].title[Translate.language]
         cell.icon!.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
 
         return cell

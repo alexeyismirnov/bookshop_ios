@@ -12,12 +12,16 @@ let Firebase_url = "https://torrid-inferno-5814.firebaseio.com"
 
 struct BookData {
     let key: String!
-    var title : String!
+    var title = [String:String!]()
     var image: String!
     
     init(snapshot: FDataSnapshot) {
         key = snapshot.key
-        title = snapshot.value["title"] as! String
+        
+        for lang in languages {
+            title[lang] = snapshot.value["title_\(lang)"] as! String
+        }
+        
         image = snapshot.value["image"] as! String
     }
 }
