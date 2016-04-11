@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WYPopoverController
 
 let viewTypeChangedNotification = "viewTypeChanged"
 
@@ -23,7 +24,7 @@ enum DataSource : Int {
     case Firebase=0, CoreData
 }
 
-class BooksViewController: UIViewController {
+class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     let prefs = NSUserDefaults.standardUserDefaults()
 
     var dataSourceId: NSNumber!
@@ -31,6 +32,7 @@ class BooksViewController: UIViewController {
 
     var currentView : MVCInterface!
     var model : BooksModel!
+    var popoverController : WYPopoverController?
     
     var viewListButton : UIBarButtonItem!
     var viewGridButton : UIBarButtonItem!
@@ -117,13 +119,39 @@ class BooksViewController: UIViewController {
         navigationController?.presentViewController(nav, animated: true, completion: {})
     }
     
-    func tap(index: NSIndexPath) {
-        let nav = storyboard!.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
+    func tap(index: NSIndexPath, _ cell : UIView) {
+        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover") as! PopoverViewController
         
-        let vc = nav.topViewController as! DetailsViewController
-        vc.bookIndex = model.books[index.row].key
+        var actions = CatalogueActions()
+        actions.viewController = self
+        actions.book = model.books[index.row]
         
-        navigationController?.presentViewController(nav, animated: true, completion: {})
+        popover.actions = actions
+        popover.delegate = self
+        
+        popoverController = WYPopoverController(contentViewController: popover)
+        popoverController?.delegate = self
+        
+        popoverController?.presentPopoverFromRect(cell.bounds,
+                                                  inView: cell,
+                                                  permittedArrowDirections: WYPopoverArrowDirection.Any,
+                                                  animated: true,
+                                                  options: WYPopoverAnimationOptions.FadeWithScale)
+        
+        
     }
     
+    func dismissPopover() {
+        popoverController?.dismissPopoverAnimated(false, completion: {})
+    }
+    
+    func popoverControllerShouldDismissPopover(_ : WYPopoverController) -> Bool {
+        return true
+    }
+    
+    func popoverControllerDidDismissPopover(_ : WYPopoverController) {
+        popoverController?.delegate = nil
+        popoverController = nil
+    }
+ 
 }

@@ -24,6 +24,8 @@ for book in  r.json():
                                         "title_ru"         : book["fields"]["title_ru"],
                                         "title_zh_cn"      : book["fields"]["title_zh_cn"],
                                         "title_zh_hk"      : book["fields"]["title_zh_hk"],
+                                        "download_url"     : book["fields"]["download_url"],
+                                        "epub_url"         : book["fields"]["epub_url"],
                                         "date_created"  : book["fields"]["date_created"],
                                         "image"         : "http://orthodoxbookshop.asia/media/" + images[book["pk"]]
         }

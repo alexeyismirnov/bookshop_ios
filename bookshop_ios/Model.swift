@@ -15,6 +15,8 @@ struct BookData {
     let key: String!
     var title = [String:String!]()
     var image: String!
+    var download_url: String!
+    var epub_url: String?
     
     init(snapshot: FDataSnapshot) {
         key = snapshot.key
@@ -24,6 +26,8 @@ struct BookData {
         }
         
         image = snapshot.value["image"] as! String
+        download_url = snapshot.value["download_url"] as! String
+        epub_url = snapshot.value["epub_url"] as? String
     }
 }
 

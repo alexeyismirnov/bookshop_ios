@@ -102,6 +102,11 @@ extension UIColor {
             alpha: CGFloat(alpha / 100)
         )
     }
+  
+    static func lightBlueColor() -> UIColor {
+        return UIColor.init(hex: "#007AFF")
+    }
+
 }
 
 extension UIImage {

@@ -52,8 +52,9 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
         let loc = gestureRecognizer.locationInView(collectionView)
         
-        if let path = collectionView?.indexPathForItemAtPoint(loc) {
-            delegate.tap(path)
+        if let path = collectionView?.indexPathForItemAtPoint(loc),
+               cell = collectionView?.cellForItemAtIndexPath(path) {
+            delegate.tap(path, cell)
         }
     }
     

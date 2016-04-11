@@ -55,8 +55,10 @@ class TableViewController : UITableViewController, MVCInterface {
     @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
         let loc = gestureRecognizer.locationInView(tableView)
         
-        if let path = tableView?.indexPathForRowAtPoint(loc) {
-            delegate.tap(path)
+        if let path = tableView?.indexPathForRowAtPoint(loc),
+               cell = tableView.cellForRowAtIndexPath(path) {
+            
+            delegate.tap(path, cell)
         }
         
     }
