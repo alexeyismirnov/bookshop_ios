@@ -25,7 +25,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
     func reload() {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Catalogue")
-            (controllers[1] as! UINavigationController).title = Translate.s("My books")
+            (controllers[1] as! UINavigationController).title = Translate.s("Favorites")
         }
     }
     

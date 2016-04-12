@@ -11,13 +11,7 @@ import UIKit
 class PopoverViewController : UITableViewController {
     var actions : ActionManager!
     var delegate : BooksViewController!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        preferredContentSize = CGSizeMake(200, 150)
-    }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actions.actions.count
     }
@@ -25,7 +19,13 @@ class PopoverViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PopoverCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = actions.actions[indexPath.row].title
+        let action = actions.actions[indexPath.row]
+        
+        cell.textLabel!.textColor = action.color
+        cell.textLabel?.text = action.title
+        
+        cell.imageView?.tintColor = action.color
+        cell.imageView?.image = action.image
         
         return cell
     }

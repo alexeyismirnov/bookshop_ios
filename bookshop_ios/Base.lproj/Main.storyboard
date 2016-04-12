@@ -75,8 +75,8 @@
         <scene sceneID="5f8-CT-iIP">
             <objects>
                 <tableViewController storyboardIdentifier="Popover" id="7pv-jU-F0p" customClass="PopoverViewController" customModule="bookshop_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9U1-43-Ywz">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9U1-43-Ywz">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -103,10 +103,10 @@
                             <outlet property="delegate" destination="7pv-jU-F0p" id="Qki-Jc-X5Q"/>
                         </connections>
                     </tableView>
-                    <value key="contentSizeForViewInPopover" type="size" width="200" height="150"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="200"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="200" height="150"/>
+                    <size key="freeformSize" width="200" height="200"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdu-UV-v7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

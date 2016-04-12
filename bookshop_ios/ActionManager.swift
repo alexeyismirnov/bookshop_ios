@@ -22,7 +22,7 @@ struct Action {
     }
     
     init(title: String, imageName: String, color: UIColor, action: (BookData) -> Void) {
-        self.init(title: title, image: UIImage(named: "options")!.imageWithRenderingMode(.AlwaysTemplate), color: color, action: action)
+        self.init(title: title, image: UIImage(named: imageName)!, color: color, action: action)
     }
     
     func execute(book : BookData) {
@@ -39,11 +39,11 @@ protocol ActionManager  {
 struct CommonActions  {
     
     static func downloadAction(url : String) -> Action {
-        let ext = NSURL(fileURLWithPath: url).pathExtension
+        let ext = NSURL(fileURLWithPath: url).pathExtension!
         let title = (ext == "pdf") ? "Download PDF" : "Download EPUB"
         
         let action = Action(title: title,
-                             imageName: "",
+                             imageName: "book_\(ext)",
                              color: UIColor.lightBlueColor(),
                              action: CommonActions.startDownload)
         
@@ -72,9 +72,15 @@ struct CatalogueActions : ActionManager {
             actions.append(CommonActions.downloadAction(book.download_url))
 
             actions.append(Action(title: "Details",
-                imageName: "",
+                imageName: "info",
                 color: UIColor.lightBlueColor(),
                 action: showDetails))
+
+            actions.append(Action(title: "Favorite",
+                imageName: "menu_star",
+                color: UIColor.lightBlueColor(),
+                action: addToFavorites))
+
         }
     }
     
@@ -85,6 +91,10 @@ struct CatalogueActions : ActionManager {
         vc.bookIndex = book.key
         
         viewController.navigationController?.presentViewController(nav, animated: true, completion: {})
+    }
+    
+    func addToFavorites(book: BookData) {
+        
     }
     
 }
