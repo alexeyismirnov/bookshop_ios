@@ -38,25 +38,40 @@ protocol ActionManager  {
 
 struct CommonActions  {
     
-    static func downloadAction(url : String) -> Action {
+    static let fileManager = NSFileManager.defaultManager()
+
+    static func downloadAction(url: String) -> Action? {
         let ext = NSURL(fileURLWithPath: url).pathExtension!
-        let title = (ext == "pdf") ? "Download PDF" : "Download EPUB"
+
+        if let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first,
+           let filename = NSURL(string: url)!.lastPathComponent,
+           let dest = documentDirectory.URLByAppendingPathComponent(filename).path
+           where fileManager.fileExistsAtPath(dest) {
+            
+            return nil
+
+        } else {
+
+            let title = (ext == "pdf") ? "Download PDF" : "Download EPUB"
+            
+            return Action(title: title,
+                                imageName: "book_\(ext)",
+                                color: UIColor.lightBlueColor(),
+                                action: CommonActions.startDownload)
+
+        }
         
-        let action = Action(title: title,
-                             imageName: "book_\(ext)",
-                             color: UIColor.lightBlueColor(),
-                             action: CommonActions.startDownload)
-        
-        return action
     }
     
     static func startDownload(book : BookData) {
         print("Downloading \(book.title["en"])")
+        DownloadManager.startTransfer(book.download_url, completionHandler: { })
     }
-    
+
 }
 
 struct CatalogueActions : ActionManager {
+    let fileManager = NSFileManager.defaultManager()
     var viewController : UIViewController!
     var actions = [Action]()
     
@@ -66,10 +81,28 @@ struct CatalogueActions : ActionManager {
             actions = []
             
             if let url = book.epub_url where url.characters.count > 0 {
-                actions.append(CommonActions.downloadAction(url))
+                
+                if let action = CommonActions.downloadAction(url) {
+                    actions.append(action)
+                    
+                } else {
+                    actions.append(Action(title: "Read EPUB",
+                                    imageName: "book_epub",
+                                    color: UIColor.lightBlueColor(),
+                                    action: previewEPUB))
+
+                }
             }
             
-            actions.append(CommonActions.downloadAction(book.download_url))
+            if let action = CommonActions.downloadAction(book.download_url) {
+                actions.append(action)
+                
+            } else {
+                actions.append(Action(title: "Read PDF",
+                    imageName: "book_pdf",
+                    color: UIColor.lightBlueColor(),
+                    action: previewPDF))
+            }
 
             actions.append(Action(title: "Details",
                 imageName: "info",
@@ -84,6 +117,7 @@ struct CatalogueActions : ActionManager {
         }
     }
     
+    
     func showDetails(book: BookData) {
         let nav = viewController.storyboard!.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
         let vc = nav.topViewController as! DetailsViewController
@@ -96,6 +130,21 @@ struct CatalogueActions : ActionManager {
     func addToFavorites(book: BookData) {
         
     }
+    
+    func previewPDF(book : BookData) {
+        if let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first,
+            let filename = NSURL(string: book.download_url)!.lastPathComponent {
+            
+            let dest = documentDirectory.URLByAppendingPathComponent(filename)
+            PreviewManager.preview(dest, viewController: viewController)
+        }
+        
+    }
+    
+    func previewEPUB(book : BookData) {
+        
+    }
+
     
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AJNotificationView
 
 enum UIUserInterfaceIdiom : Int {
     case Unspecified
@@ -184,4 +185,19 @@ extension UIImageView {
         }).resume()
     }
 }
+
+
+struct Environment {
+    
+    static func showNotification(title: String, subtitle: String, isError: Bool) {
+        
+        AJNotificationView.showNoticeInView((UIApplication.sharedApplication().delegate?.window)!,
+                                            type: isError ? AJNotificationTypeRed : AJNotificationTypeBlue,
+                                            title: subtitle,
+                                            linedBackground: AJLinedBackgroundTypeAnimated,
+                                            hideAfter: 2.0)
+    }
+    
+}
+
 

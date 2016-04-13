@@ -120,11 +120,12 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     }
     
     func tap(index: NSIndexPath, _ cell : UIView) {
-        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover") as! PopoverViewController
         
         var actions = CatalogueActions()
         actions.viewController = self
         actions.book = model.books[index.row]
+        
+        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover\(actions.actions.count)") as! PopoverViewController
         
         popover.actions = actions
         popover.delegate = self
