@@ -27,8 +27,7 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
             return cell
         }
         
-        cell.title!.text = delegate.model.books[indexPath.row].title[Translate.language]
-        cell.icon!.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
+        cell.book = delegate.model.books[indexPath.row]
 
         return cell
     }
@@ -46,7 +45,7 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsetsMake(10, 10, 10, 10);
+        return UIEdgeInsetsMake(5, 10, 5, 10);
     }
     
     @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
@@ -61,4 +60,10 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     func reload() {
         collectionView?.reloadData()
     }
+    
+    func cellForPath(path: String) -> UIView? {
+        let index = delegate.model.books.indexOf { $0.download_url == path || $0.epub_url == path }
+        return (collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: index!, inSection: 0)))
+    }
+    
 }

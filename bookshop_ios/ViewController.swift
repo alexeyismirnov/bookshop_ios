@@ -14,6 +14,12 @@ let viewTypeChangedNotification = "viewTypeChanged"
 @objc protocol MVCInterface : class {
     var delegate : BooksViewController! { get set }
     @objc func reload()
+    @objc func cellForPath(path : String) -> UIView?
+}
+
+protocol CellInterface : class {
+    var progressbar : UIProgressView! { get set }
+    var book : BookData! { get set }
 }
 
 enum ViewType : Int {
@@ -56,6 +62,8 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
                                          target: self,
                                          action: #selector(BooksViewController.showOptions))
 
+        DownloadManager.allViews.append(self)
+        
         createModel()
         createViewController()
         
@@ -93,8 +101,8 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         navigationController?.popViewControllerAnimated(false)
         
         let vc = storyboard!.instantiateViewControllerWithIdentifier(controllerId)
+        (vc as! MVCInterface).delegate = self
         currentView = vc as! MVCInterface
-        currentView.delegate = self
         
         vc.navigationItem.leftBarButtonItem = (viewType == .ListView) ? viewGridButton : viewListButton
         vc.navigationItem.rightBarButtonItem = optionsButton
@@ -142,6 +150,10 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         
     }
     
+    func cellForPath(path : String) -> CellInterface? {
+        return currentView.cellForPath(path) as? CellInterface
+    }
+    
     func dismissPopover() {
         popoverController?.dismissPopoverAnimated(false, completion: {})
     }
@@ -154,5 +166,4 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         popoverController?.delegate = nil
         popoverController = nil
     }
- 
 }

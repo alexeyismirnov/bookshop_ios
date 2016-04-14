@@ -31,10 +31,8 @@ class TableViewController : UITableViewController, MVCInterface {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = getCell()
-        
-        cell.title!.text = delegate.model.books[indexPath.row].title[Translate.language]
-        cell.icon!.downloadedFrom(link: delegate.model.books[indexPath.row].image, contentMode: .ScaleAspectFit, cell: cell)
-        
+        cell.book = delegate.model.books[indexPath.row]
+
         return cell
     }
     
@@ -66,4 +64,10 @@ class TableViewController : UITableViewController, MVCInterface {
     func reload() {
         tableView.reloadData()
     }
+    
+    func cellForPath(path: String) -> UIView? {
+        let index = delegate.model.books.indexOf { $0.download_url == path || $0.epub_url == path }
+        return tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index!, inSection: 0))
+    }
 }
+

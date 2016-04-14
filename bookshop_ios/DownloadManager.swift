@@ -12,13 +12,14 @@ import Reachability
 struct FileTransferInfo {
     var path : String!
     var task : NSURLSessionTask!
-    var progress : Double
+    var progress : Float
     var completionHandler : () -> Void
 }
 
 class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionDataDelegate {
     
     static let sharedInstance = DownloadManager()
+    static var allViews = [BooksViewController]()
     static var currentTransfers = [Int : FileTransferInfo]()
     
     var downloadSessionConfig : NSURLSessionConfiguration!
@@ -56,6 +57,13 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         
         currentTransfers[task.taskIdentifier] = fti
         
+        for vc in DownloadManager.allViews {
+            if let cell = vc.cellForPath(path) {
+                cell.progressbar.hidden = false
+                cell.progressbar.progress = 0
+            }
+        }
+        
         task.resume()
     }
     
@@ -77,13 +85,19 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
 
         if totalBytesExpectedToWrite == NSURLSessionTransferSizeUnknown {
             print("Unknown transfer size")
-            
-        } else {
-            let progress  = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
-            print("progress \(progress)")
-            
-            DownloadManager.currentTransfers[downloadTask.taskIdentifier]?.progress = progress
+            return
         }
+        
+        let progress  = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        print("progress \(progress)")
+        
+        for vc in DownloadManager.allViews {
+            if let cell = vc.cellForPath(DownloadManager.currentTransfers[downloadTask.taskIdentifier]!.path) {
+                cell.progressbar.progress = progress
+            }
+        }
+            
+        DownloadManager.currentTransfers[downloadTask.taskIdentifier]?.progress = progress
  
     }
  
@@ -104,6 +118,12 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
             
         } catch let error as NSError {
             print(error.localizedDescription)
+        }
+        
+        for vc in DownloadManager.allViews {
+            if let cell = vc.cellForPath(fti.path) {
+                cell.progressbar.hidden = true
+            }
         }
 
         DownloadManager.currentTransfers.removeValueForKey(fti.task.taskIdentifier)

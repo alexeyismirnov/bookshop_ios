@@ -53,7 +53,7 @@ struct CommonActions  {
             return Action(title: title,
                           imageName: "book_\(ext)",
                           color: UIColor.lightBlueColor(),
-                          action: { _  in  PreviewManager.preview(NSURL(string:dest)!, viewController: viewController)
+                          action: { _  in  PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
             })
 
 

@@ -137,24 +137,33 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="475" translatesAutoresizingMaskIntoConstraints="NO" id="deF-xD-KO3" customClass="RWLabel" customModule="bookshop_ios" customModuleProvider="target">
-                                            <rect key="frame" x="86" y="26" width="475" height="21"/>
+                                            <rect key="frame" x="86" y="23" width="475" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="klL-my-1Os">
+                                            <rect key="frame" x="86" y="49" width="431" height="2"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="tS8-oO-pdZ"/>
+                                            </constraints>
+                                        </progressView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="deF-xD-KO3" firstAttribute="centerY" secondItem="db1-q2-rqB" secondAttribute="centerY" id="GXl-9y-ZBT"/>
                                         <constraint firstItem="C0W-s3-ORn" firstAttribute="centerY" secondItem="db1-q2-rqB" secondAttribute="centerY" id="HC7-Xr-9fD"/>
-                                        <constraint firstAttribute="bottom" secondItem="deF-xD-KO3" secondAttribute="bottom" constant="20" symbolic="YES" id="OZb-Sc-yT1"/>
+                                        <constraint firstItem="klL-my-1Os" firstAttribute="leading" secondItem="deF-xD-KO3" secondAttribute="leading" id="Hgc-p3-dK4"/>
+                                        <constraint firstItem="klL-my-1Os" firstAttribute="top" secondItem="deF-xD-KO3" secondAttribute="bottom" constant="5" id="Om7-t2-VCa"/>
                                         <constraint firstItem="deF-xD-KO3" firstAttribute="leading" secondItem="C0W-s3-ORn" secondAttribute="trailing" constant="8" symbolic="YES" id="P2k-33-bk6"/>
                                         <constraint firstAttribute="trailing" secondItem="deF-xD-KO3" secondAttribute="trailing" constant="20" symbolic="YES" id="W2h-WP-AmR"/>
                                         <constraint firstItem="deF-xD-KO3" firstAttribute="top" secondItem="db1-q2-rqB" secondAttribute="top" constant="20" symbolic="YES" id="atc-EB-PPT"/>
                                         <constraint firstItem="C0W-s3-ORn" firstAttribute="leading" secondItem="db1-q2-rqB" secondAttribute="leading" constant="20" symbolic="YES" id="gTR-9f-c1l"/>
+                                        <constraint firstItem="klL-my-1Os" firstAttribute="trailing" secondItem="deF-xD-KO3" secondAttribute="trailing" id="sAN-0F-y76"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="icon" destination="C0W-s3-ORn" id="iE8-sQ-KDJ"/>
+                                    <outlet property="progressbar" destination="klL-my-1Os" id="6u0-pU-QEQ"/>
                                     <outlet property="title" destination="deF-xD-KO3" id="moA-hu-2bs"/>
                                 </connections>
                             </tableViewCell>
@@ -201,30 +210,39 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fix-He-E6N">
                                             <rect key="frame" x="11" y="11" width="65" height="80"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l88-HA-4Fh">
-                                            <rect key="frame" x="8" y="105" width="72" height="38"/>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gdy-qk-lBw">
+                                            <rect key="frame" x="10" y="100" width="62" height="2"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="ge4-6Y-94L"/>
+                                                <constraint firstAttribute="height" constant="2" id="4Vx-wj-cAA"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </progressView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duj-3C-pFZ">
+                                            <rect key="frame" x="6" y="110" width="76" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="bJd-e4-6Fr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="l88-HA-4Fh" secondAttribute="trailing" constant="5" id="68p-1L-x82"/>
+                                    <constraint firstItem="duj-3C-pFZ" firstAttribute="leading" secondItem="WwI-4u-cwp" secondAttribute="leading" constant="5" id="4LW-Xz-Q9X"/>
+                                    <constraint firstItem="Gdy-qk-lBw" firstAttribute="leading" secondItem="WwI-4u-cwp" secondAttribute="leading" constant="5" id="65D-5q-05P"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gdy-qk-lBw" secondAttribute="trailing" constant="5" id="C9L-rf-Yht"/>
+                                    <constraint firstItem="Gdy-qk-lBw" firstAttribute="top" secondItem="Fix-He-E6N" secondAttribute="bottom" constant="3" id="Fyq-2X-I3C"/>
                                     <constraint firstItem="Fix-He-E6N" firstAttribute="leading" secondItem="WwI-4u-cwp" secondAttribute="leading" constant="5" id="QLq-Au-xnC"/>
-                                    <constraint firstAttribute="bottom" secondItem="l88-HA-4Fh" secondAttribute="bottom" constant="5" id="REB-Fu-lAh"/>
+                                    <constraint firstAttribute="bottom" secondItem="duj-3C-pFZ" secondAttribute="bottom" constant="5" id="Qw4-sO-dgz"/>
+                                    <constraint firstAttribute="trailing" secondItem="duj-3C-pFZ" secondAttribute="trailing" constant="5" id="eAc-fC-IPK"/>
+                                    <constraint firstItem="duj-3C-pFZ" firstAttribute="top" secondItem="Gdy-qk-lBw" secondAttribute="bottom" constant="2" id="oke-EV-Ucs"/>
                                     <constraint firstAttribute="trailing" secondItem="Fix-He-E6N" secondAttribute="trailing" constant="5" id="sCy-x5-XYu"/>
-                                    <constraint firstItem="l88-HA-4Fh" firstAttribute="top" secondItem="Fix-He-E6N" secondAttribute="bottom" constant="5" id="tC3-IP-hS4"/>
                                     <constraint firstItem="Fix-He-E6N" firstAttribute="top" secondItem="WwI-4u-cwp" secondAttribute="top" constant="5" id="xiC-cv-0cE"/>
-                                    <constraint firstItem="l88-HA-4Fh" firstAttribute="leading" secondItem="WwI-4u-cwp" secondAttribute="leading" constant="5" id="y7v-YW-82b"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="icon" destination="Fix-He-E6N" id="PNN-dD-Lx2"/>
-                                    <outlet property="title" destination="l88-HA-4Fh" id="yGe-lh-1af"/>
+                                    <outlet property="progressbar" destination="Gdy-qk-lBw" id="UtN-ej-ppR"/>
+                                    <outlet property="title" destination="duj-3C-pFZ" id="4sS-qf-KFi"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
