@@ -15,10 +15,16 @@ class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
     var docPreview : UIDocumentInteractionController!
 
     static func preview(url: NSURL, viewController: UIViewController) {
-        sharedInstance.viewController = viewController
-        sharedInstance.docPreview = UIDocumentInteractionController(URL: url)
-        sharedInstance.docPreview.delegate = sharedInstance
-        sharedInstance.docPreview.presentPreviewAnimated(true)
+
+        if url.pathExtension == "pdf" {
+            sharedInstance.viewController = viewController
+            sharedInstance.docPreview = UIDocumentInteractionController(URL: url)
+            sharedInstance.docPreview.delegate = sharedInstance
+            sharedInstance.docPreview.presentPreviewAnimated(true)
+            
+        } else {
+            
+        }
     }
     
     
