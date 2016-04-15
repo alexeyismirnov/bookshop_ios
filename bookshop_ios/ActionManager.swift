@@ -42,7 +42,7 @@ struct CommonActions  {
 
     static func downloadAction(url: String, _ viewController : UIViewController) -> Action {
         let ext = NSURL(fileURLWithPath: url).pathExtension!
-
+        
         if let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first,
            let filename = NSURL(string: url)!.lastPathComponent,
            let dest = documentDirectory.URLByAppendingPathComponent(filename).path
@@ -63,11 +63,26 @@ struct CommonActions  {
             return Action(title: title,
                                 imageName: "book_\(ext)",
                                 color: UIColor.lightBlueColor(),
-                                action: { book in  DownloadManager.startTransfer(book.download_url, completionHandler: {})
+                                action: { _ in  DownloadManager.startTransfer(url, completionHandler: {})
             })
 
         }
+    }
+    
+}
+
+
+struct DownloadActions : ActionManager {
+    var viewController : UIViewController!
+    var actions = [Action]()
+    var book : BookData!
         
+    init(path : String) {
+        actions.append(Action(title: Translate.s("Cancel"),
+            imageName: "trash",
+            color: UIColor.redColor(),
+            action: { _ in DownloadManager.cancelTransfer(path)
+        }))
     }
 }
 

@@ -129,11 +129,25 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     
     func tap(index: NSIndexPath, _ cell : UIView) {
         
-        var actions = CatalogueActions()
-        actions.viewController = self
+        var actions : ActionManager!
+        
+        if let fti = DownloadManager.fileTransferInfo((cell as! CellInterface).book.download_url) {
+            actions = DownloadActions(path: fti.path)
+            
+        } else if let epub_url = (cell as! CellInterface).book.epub_url,
+                  let fti = DownloadManager.fileTransferInfo(epub_url) {
+            
+            actions = DownloadActions(path: fti.path)
+            
+        } else {
+            actions = CatalogueActions()
+            actions.viewController = self
+        }
+        
         actions.book = model.books[index.row]
         
-        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover\(actions.actions.count)") as! PopoverViewController
+        let height = (actions.actions.count < 3) ? 3 : actions.actions.count
+        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover\(height)") as! PopoverViewController
         
         popover.actions = actions
         popover.delegate = self

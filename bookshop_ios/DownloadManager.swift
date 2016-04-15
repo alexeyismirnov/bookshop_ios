@@ -69,8 +69,20 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
     
     static func fileTransferInfo(path: String) -> FileTransferInfo? {
         let transfer = currentTransfers.filter { $0.1.path == path }
-        
         return transfer.count > 0 ? transfer[0].1 : nil
+    }
+    
+    static func cancelTransfer(path: String) {
+        guard let fti = fileTransferInfo(path) else { return }
+        
+        fti.task.cancel()
+        currentTransfers.removeValueForKey(fti.task.taskIdentifier)
+        
+        for vc in DownloadManager.allViews {
+            if let cell = vc.cellForPath(path) {
+                cell.progressbar.hidden = true
+            }
+        }
     }
     
     func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void) {
@@ -89,10 +101,10 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         }
         
         let progress  = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-        print("progress \(progress)")
         
         for vc in DownloadManager.allViews {
-            if let cell = vc.cellForPath(DownloadManager.currentTransfers[downloadTask.taskIdentifier]!.path) {
+            if let fti = DownloadManager.currentTransfers[downloadTask.taskIdentifier],
+               let cell = vc.cellForPath(fti.path) {
                 cell.progressbar.progress = progress
             }
         }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FolioReaderKit
 
 class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
     static let sharedInstance = PreviewManager()
@@ -23,7 +23,9 @@ class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
             sharedInstance.docPreview.presentPreviewAnimated(true)
             
         } else {
-            
+            let config = FolioReaderConfig()
+            FolioReader.presentReader(parentViewController: viewController, withEpubPath: url.path!, andConfig: config)
+
         }
     }
     
