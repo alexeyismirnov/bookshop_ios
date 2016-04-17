@@ -22,7 +22,7 @@ class PopoverViewController : UITableViewController {
         let action = actions.actions[indexPath.row]
         
         cell.textLabel!.textColor = action.color
-        cell.textLabel?.text = action.title
+        cell.textLabel?.text = Translate.s(action.title)
         
         cell.imageView?.tintColor = action.color
         cell.imageView?.image = action.image

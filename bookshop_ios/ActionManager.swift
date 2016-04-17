@@ -48,7 +48,7 @@ struct CommonActions  {
            let dest = documentDirectory.URLByAppendingPathComponent(filename).path
            where fileManager.fileExistsAtPath(dest) {
 
-            let title = (ext == "pdf") ? Translate.s("Read PDF") : Translate.s("Read EPUB")
+            let title = (ext == "pdf") ? "Read PDF" : "Read EPUB"
             
             return Action(title: title,
                           imageName: "book_\(ext)",
@@ -58,7 +58,7 @@ struct CommonActions  {
 
 
         } else {
-            let title = (ext == "pdf") ? Translate.s("Download PDF") : Translate.s("Download EPUB")
+            let title = (ext == "pdf") ? "Download PDF" : "Download EPUB"
             
             return Action(title: title,
                                 imageName: "book_\(ext)",
@@ -107,7 +107,7 @@ struct CatalogueActions : ActionManager {
                 color: UIColor.lightBlueColor(),
                 action: showDetails))
 
-            actions.append(Action(title: "Favorite",
+            actions.append(Action(title: "Add to Favorites",
                 imageName: "menu_star",
                 color: UIColor.lightBlueColor(),
                 action: addToFavorites))

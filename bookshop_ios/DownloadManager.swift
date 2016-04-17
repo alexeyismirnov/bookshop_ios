@@ -146,7 +146,7 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
         if let e = error {
-            Environment.showNotification("Error", subtitle: e.localizedDescription, isError: true)
+            Environment.showNotification("Error", subtitle: Translate.s(e.localizedDescription), isError: true)
         }
     }
 }

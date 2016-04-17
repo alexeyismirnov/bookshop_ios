@@ -113,6 +113,7 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     
     func reload() {
         currentView.reload()
+        (currentView as! UIViewController).title = Translate.s("Orthodox Library")
     }
     
     func switchViewType() {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cancelled</key>
+	<string>Отменено</string>
+	<key>Download complete</key>
+	<string>Книга загружена</string>
+	<key>Cancel</key>
+	<string>Отменить</string>
+	<key>(C) 2016 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.</key>
+	<string>(C) 2016 Приход Свв. Апп. Петра и Павла в Гонконге (Московский Патриархат)</string>
+	<key>Options</key>
+	<string>Настройки</string>
+	<key>Author</key>
+	<string>Автор</string>
+	<key>Add to Favorites</key>
+	<string>В избранное</string>
+	<key>Date added</key>
+	<string>Добавлено</string>
+	<key>Publisher</key>
+	<string>Издательство</string>
+	<key>Number of pages</key>
+	<string>Кол-во страниц</string>
+	<key>Language</key>
+	<string>Язык</string>
+	<key>Translator</key>
+	<string>Переводчик</string>
+	<key>Read EPUB</key>
+	<string>Читать EPUB</string>
+	<key>Read PDF</key>
+	<string>Читать PDF</string>
+	<key>Download EPUB</key>
+	<string>Скачать EPUB</string>
+	<key>Details</key>
+	<string>О книге...</string>
+	<key>Download PDF</key>
+	<string>Скачать PDF</string>
+	<key>Favorites</key>
+	<string>Избранное</string>
+	<key>Catalogue</key>
+	<string>Каталог</string>
+	<key>Orthodox Library</key>
+	<string>Библиотека</string>
+</dict>
+</plist>

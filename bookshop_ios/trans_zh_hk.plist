@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cancelled</key>
+	<string>取消</string>
+	<key>Download complete</key>
+	<string>书 已下載</string>
+	<key>Cancel</key>
+	<string>取消</string>
+	<key>(C) 2016 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.</key>
+	<string>(C) 2016 香港聖彼得聖保羅教堂</string>
+	<key>Options</key>
+	<string>設置</string>
+	<key>Author</key>
+	<string>作者</string>
+	<key>Add to Favorites</key>
+	<string>我的最愛</string>
+	<key>Date added</key>
+	<string>出版日期</string>
+	<key>Publisher</key>
+	<string>出版社</string>
+	<key>Number of pages</key>
+	<string>頁數</string>
+	<key>Language</key>
+	<string>語言</string>
+	<key>Translator</key>
+	<string>譯者</string>
+	<key>Read EPUB</key>
+	<string>閱讀EPUB文件</string>
+	<key>Read PDF</key>
+	<string>閱讀PDF文件</string>
+	<key>Download EPUB</key>
+	<string>下載EPUB文件</string>
+	<key>Details</key>
+	<string>產品信息</string>
+	<key>Download PDF</key>
+	<string>下載PDF文件</string>
+	<key>Favorites</key>
+	<string>我的最愛</string>
+	<key>Catalogue</key>
+	<string>目錄</string>
+	<key>Orthodox Library</key>
+	<string>正教圖書圖書館</string>
+</dict>
+</plist>

@@ -17,7 +17,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         super.viewDidLoad()
         
         delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainVC.reload), name: optionsSavedNotification, object: nil)
 
         reload()
     }
