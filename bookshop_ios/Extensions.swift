@@ -132,6 +132,24 @@ extension UIImage {
         return coloredImage
     }
     
+    func resize(size: CGSize, color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        let context = UIGraphicsGetCurrentContext()
+        let rect = CGRectMake(0, 0, size.width, size.height)
+        
+        CGContextSetBlendMode(context, .Normal)
+        drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        CGContextSetBlendMode(context, .SourceIn)
+        color.setFill()
+        CGContextFillRect(context, rect)
+
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return scaledImage
+    }
+ 
     func resize(sizeChange:CGSize)-> UIImage {
         let hasAlpha = true
         let scale: CGFloat = 0.0 // Use scale factor of main screen
@@ -140,6 +158,7 @@ extension UIImage {
         drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         return scaledImage
     }
 }

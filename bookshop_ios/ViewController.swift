@@ -9,8 +9,6 @@
 import UIKit
 import WYPopoverController
 
-let viewTypeChangedNotification = "viewTypeChanged"
-
 @objc protocol MVCInterface : class {
     var delegate : BooksViewController! { get set }
     @objc func reload()
@@ -67,10 +65,13 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         createModel()
         createViewController()
         
-        model.load() {
-            self.currentView.reload()
-        }
+        modelReload()
         
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(BooksViewController.modelReload),
+                                                         name: needReloadViewNotification,
+                                                         object: nil)
+
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(BooksViewController.reload),
                                                          name: optionsSavedNotification,
@@ -116,6 +117,12 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         (currentView as! UIViewController).title = Translate.s("Orthodox Library")
     }
     
+    func modelReload() {
+        model.load() {
+            self.currentView.reload()
+        }
+    }
+
     func switchViewType() {
         prefs.setObject((viewType == .ListView) ? "grid" : "list", forKey: "viewType")
         prefs.synchronize()
@@ -141,7 +148,8 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
             actions = DownloadActions(path: fti.path)
             
         } else {
-            actions = CatalogueActions()
+            let source = DataSource(rawValue: dataSourceId.integerValue)!
+            actions = (source == .Firebase) ? CatalogueActions() : FavoritesActions()
             actions.viewController = self
         }
         

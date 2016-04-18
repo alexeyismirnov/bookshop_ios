@@ -13,6 +13,7 @@ class TableViewCell : UITableViewCell, CellInterface {
     @IBOutlet weak var progressbar: UIProgressView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var title: RWLabel!
+    @IBOutlet weak var star: UIButton!
     
     var book : BookData! {
         didSet {
@@ -29,6 +30,10 @@ class TableViewCell : UITableViewCell, CellInterface {
                 let _ = DownloadManager.fileTransferInfo(epub_url) {
                 progressbar.hidden = false
             }
+            
+            let starImage = UIImage(named: "star")?.imageWithRenderingMode(.AlwaysTemplate)
+            star.setImage(starImage, forState: .Normal)
+            star.tintColor = book.favorite ? UIColor.greenColor() : UIColor.clearColor()
 
         }
     }

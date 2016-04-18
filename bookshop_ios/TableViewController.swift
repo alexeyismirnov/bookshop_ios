@@ -12,10 +12,6 @@ class TableViewController : UITableViewController, MVCInterface {
     
     var delegate : BooksViewController!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate.model.books.count
     }

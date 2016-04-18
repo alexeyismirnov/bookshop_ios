@@ -17,13 +17,14 @@
 		8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */; };
 		8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */; };
 		8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */; };
+		8A465CC51CC4B8E800153973 /* stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC31CC4B8E800153973 /* stop.pdf */; };
+		8A465CC61CC4B8E800153973 /* trash.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC41CC4B8E800153973 /* trash.pdf */; };
 		8A546AEC1CB747F90090CFDA /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */; };
 		8A546AEE1CB74CC20090CFDA /* flag_us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AED1CB74CC20090CFDA /* flag_us.pdf */; };
 		8A546AF21CB74F4D0090CFDA /* flag_cn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AEF1CB74F4D0090CFDA /* flag_cn.pdf */; };
 		8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AF01CB74F4D0090CFDA /* flag_hk.pdf */; };
 		8A546AF41CB74F4D0090CFDA /* flag_ru.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A546AF11CB74F4D0090CFDA /* flag_ru.pdf */; };
 		8A670FC11CBC944A00B27365 /* star.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A670FBE1CBC944A00B27365 /* star.pdf */; };
-		8A670FC21CBC944A00B27365 /* trash.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A670FBF1CBC944A00B27365 /* trash.pdf */; };
 		8A670FC81CBCE84800B27365 /* book_epub.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A670FC71CBCE84800B27365 /* book_epub.pdf */; };
 		8A670FCA1CBCEB5C00B27365 /* book_pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A670FC91CBCEB5C00B27365 /* book_pdf.pdf */; };
 		8A670FCC1CBCEDE800B27365 /* info.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A670FCB1CBCEDE800B27365 /* info.pdf */; };
@@ -66,13 +67,14 @@
 		8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ru.plist; sourceTree = "<group>"; };
 		8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_cn.plist; sourceTree = "<group>"; };
 		8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_hk.plist; sourceTree = "<group>"; };
+		8A465CC31CC4B8E800153973 /* stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = stop.pdf; sourceTree = "<group>"; };
+		8A465CC41CC4B8E800153973 /* trash.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = trash.pdf; sourceTree = "<group>"; };
 		8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		8A546AED1CB74CC20090CFDA /* flag_us.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_us.pdf; sourceTree = "<group>"; };
 		8A546AEF1CB74F4D0090CFDA /* flag_cn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_cn.pdf; sourceTree = "<group>"; };
 		8A546AF01CB74F4D0090CFDA /* flag_hk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_hk.pdf; sourceTree = "<group>"; };
 		8A546AF11CB74F4D0090CFDA /* flag_ru.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = flag_ru.pdf; sourceTree = "<group>"; };
 		8A670FBE1CBC944A00B27365 /* star.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = star.pdf; sourceTree = "<group>"; };
-		8A670FBF1CBC944A00B27365 /* trash.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = trash.pdf; sourceTree = "<group>"; };
 		8A670FC71CBCE84800B27365 /* book_epub.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book_epub.pdf; sourceTree = "<group>"; };
 		8A670FC91CBCEB5C00B27365 /* book_pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book_pdf.pdf; sourceTree = "<group>"; };
 		8A670FCB1CBCEDE800B27365 /* info.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = info.pdf; sourceTree = "<group>"; };
@@ -187,12 +189,13 @@
 		8AE53C431CAA2B8E005BFA1B /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8A465CC31CC4B8E800153973 /* stop.pdf */,
+				8A465CC41CC4B8E800153973 /* trash.pdf */,
 				8A670FCD1CBCEF3A00B27365 /* menu_star.pdf */,
 				8A670FCB1CBCEDE800B27365 /* info.pdf */,
 				8A670FC91CBCEB5C00B27365 /* book_pdf.pdf */,
 				8A670FC71CBCE84800B27365 /* book_epub.pdf */,
 				8A670FBE1CBC944A00B27365 /* star.pdf */,
-				8A670FBF1CBC944A00B27365 /* trash.pdf */,
 				8A546AEF1CB74F4D0090CFDA /* flag_cn.pdf */,
 				8A546AF01CB74F4D0090CFDA /* flag_hk.pdf */,
 				8A546AF11CB74F4D0090CFDA /* flag_ru.pdf */,
@@ -287,9 +290,9 @@
 				8AE53C491CAA2E7B005BFA1B /* mybooks.pdf in Resources */,
 				8AE53C391CAA1C73005BFA1B /* LaunchScreen.storyboard in Resources */,
 				8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */,
-				8A670FC21CBC944A00B27365 /* trash.pdf in Resources */,
 				8A00960A1CB2555F005A2980 /* view_list.pdf in Resources */,
 				8A546AF21CB74F4D0090CFDA /* flag_cn.pdf in Resources */,
+				8A465CC61CC4B8E800153973 /* trash.pdf in Resources */,
 				8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */,
 				8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */,
 				8A670FC11CBC944A00B27365 /* star.pdf in Resources */,
@@ -297,6 +300,7 @@
 				8A670FC81CBCE84800B27365 /* book_epub.pdf in Resources */,
 				8A670FCE1CBCEF3A00B27365 /* menu_star.pdf in Resources */,
 				8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */,
+				8A465CC51CC4B8E800153973 /* stop.pdf in Resources */,
 				8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */,
 				8A0096091CB2555F005A2980 /* view_grid.pdf in Resources */,
 				8AE53C471CAA2C32005BFA1B /* options.pdf in Resources */,

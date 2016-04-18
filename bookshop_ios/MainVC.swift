@@ -8,7 +8,10 @@
 
 import UIKit
 
-var optionsSavedNotification  = "OPTIONS_SAVED"
+let optionsSavedNotification  = "OPTIONS_SAVED"
+let viewTypeChangedNotification = "viewTypeChanged"
+let needReloadViewNotification = "needReloadView"
+
 let languages = ["en", "ru", "zh_cn", "zh_hk"]
 
 class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAnimatedTransitioning {

@@ -69,6 +69,22 @@ struct CommonActions  {
         }
     }
     
+    static func detailsAction(viewController : UIViewController) -> Action {
+        return Action(title: "Details",
+            imageName: "info",
+            color: UIColor.lightBlueColor(),
+            action: { book in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let nav = storyboard.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
+                
+                let vc = nav.topViewController as! DetailsViewController
+                vc.bookIndex = book.key
+                
+                viewController.navigationController?.presentViewController(nav, animated: true, completion: {})
+        })
+
+    }
+    
 }
 
 
@@ -79,7 +95,7 @@ struct DownloadActions : ActionManager {
         
     init(path : String) {
         actions.append(Action(title: Translate.s("Cancel"),
-            imageName: "trash",
+            imageName: "stop",
             color: UIColor.redColor(),
             action: { _ in DownloadManager.cancelTransfer(path)
         }))
@@ -87,13 +103,11 @@ struct DownloadActions : ActionManager {
 }
 
 struct CatalogueActions : ActionManager {
-    let fileManager = NSFileManager.defaultManager()
     var viewController : UIViewController!
     var actions = [Action]()
     
     var book : BookData! {
         didSet {
-            
             actions = []
             
             if let url = book.epub_url where url.characters.count > 0 {
@@ -101,11 +115,7 @@ struct CatalogueActions : ActionManager {
             }
 
             actions.append(CommonActions.downloadAction(book.download_url, viewController))
-
-            actions.append(Action(title: "Details",
-                imageName: "info",
-                color: UIColor.lightBlueColor(),
-                action: showDetails))
+            actions.append(CommonActions.detailsAction(viewController))
 
             actions.append(Action(title: "Add to Favorites",
                 imageName: "menu_star",
@@ -115,21 +125,57 @@ struct CatalogueActions : ActionManager {
         }
     }
     
-    
-    func showDetails(book: BookData) {
-        let nav = viewController.storyboard!.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
-        let vc = nav.topViewController as! DetailsViewController
-        
-        vc.bookIndex = book.key
-        
-        viewController.navigationController?.presentViewController(nav, animated: true, completion: {})
-    }
-    
     func addToFavorites(book: BookData) {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        var favorites = prefs.arrayForKey("favorites") as! [String]
+
+        if !favorites.contains(book.key) {
+            favorites.append(book.key)
+        }
         
+        prefs.setObject(favorites, forKey: "favorites")
+        prefs.synchronize()
+
+        NSNotificationCenter.defaultCenter().postNotificationName(needReloadViewNotification, object: nil)
+    }
+}
+
+struct FavoritesActions : ActionManager {
+    var viewController : UIViewController!
+    var actions = [Action]()
+    
+    var book : BookData! {
+        didSet {
+            actions = []
+            
+            if let url = book.epub_url where url.characters.count > 0 {
+                actions.append(CommonActions.downloadAction(url, viewController))
+            }
+            
+            actions.append(CommonActions.downloadAction(book.download_url, viewController))
+            actions.append(CommonActions.detailsAction(viewController))
+            
+            actions.append(Action(title: "Delete",
+                imageName: "trash",
+                color: UIColor.redColor(),
+                action: removeFromFavorites))
+        }
     }
     
-    
+    func removeFromFavorites(book: BookData) {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        var favorites = prefs.arrayForKey("favorites") as! [String]
+        
+        if let index = favorites.indexOf(book.key) {
+            favorites.removeAtIndex(index)
+        }
+        
+        prefs.setObject(favorites, forKey: "favorites")
+        prefs.synchronize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(needReloadViewNotification, object: nil)
+        
+    }
 }
 
 

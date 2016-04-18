@@ -11,10 +11,6 @@ import UIKit
 class CollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout, MVCInterface {
     
     var delegate : BooksViewController!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate.model.books.count

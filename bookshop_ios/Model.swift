@@ -17,6 +17,7 @@ struct BookData {
     var image: String!
     var download_url: String!
     var epub_url: String?
+    var favorite : Bool = false
     
     init(snapshot: FDataSnapshot) {
         key = snapshot.key
@@ -44,19 +45,27 @@ class BooksModel {
 
 class FirebaseModel : BooksModel {
     let ref = Firebase(url: "\(Firebase_url)/index")
-    
+    let prefs = NSUserDefaults.standardUserDefaults()
+
     required init() {
         super.init()
     }
     
     override func load(completion: () -> Void) {
+        let favorites = self.prefs.arrayForKey("favorites") as! [String]
+
         books = []
-        
+
         ref.queryOrderedByChild("date_created").observeEventType(.Value, withBlock: { snapshot in
             var newItems = [BookData]()
 
             for book in snapshot.children {
-                let item = BookData(snapshot: book as! FDataSnapshot)
+                var item = BookData(snapshot: book as! FDataSnapshot)
+                
+                if favorites.contains(book.key) {
+                    item.favorite = true
+                }
+                
                 newItems.append(item)
             }
             
@@ -67,15 +76,26 @@ class FirebaseModel : BooksModel {
     }
 }
 
-class CoreDataModel : BooksModel {
+class CoreDataModel : FirebaseModel {
     required init() {
         super.init()
     }
 
     override func load(completion: () -> Void) {
-        completion()
+        super.load() { _ in
+            
+            let favorites = self.prefs.arrayForKey("favorites") as! [String]
+
+            self.books = self.books.filter() { book in
+                favorites.contains(book.key)
+            }
+
+            for i in self.books.indices {
+                self.books[i].favorite = false
+            }
+            
+            completion()
+        }
     }
 }
-
-
 

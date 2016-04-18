@@ -16,7 +16,23 @@ class CollectionViewCell : UICollectionViewCell, CellInterface {
     
     var book : BookData!  {
         didSet {
-            title.text = book.title[Translate.language]
+            
+            let starImage = UIImage(named: "star")!.imageWithRenderingMode(.AlwaysTemplate)
+            let color = book.favorite ? UIColor.greenColor() : UIColor.clearColor()
+            
+            let attachment = NSTextAttachment()
+            attachment.image = starImage.resize(CGSizeMake(15, 15), color: color)
+            
+            let attachmentString = NSAttributedString(attachment: attachment)
+            let str = NSMutableAttributedString()
+            
+            if color != UIColor.clearColor() {
+                str.appendAttributedString(attachmentString)
+            }
+            
+            str.appendAttributedString(NSAttributedString(string: book.title[Translate.language]!))
+            
+            title.attributedText = str
 
             title.textContainer.lineBreakMode = .ByWordWrapping
             title.textContainer.lineFragmentPadding = 0

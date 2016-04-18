@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Delete</key>
+	<string>刪除</string>
 	<key>cancelled</key>
 	<string>取消</string>
 	<key>Download complete</key>

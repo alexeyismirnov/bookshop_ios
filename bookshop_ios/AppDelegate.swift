@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          NSUserDefaults.standardUserDefaults().registerDefaults([
             "kNightMode": false,
             "language": "en",
-            "viewType": (UIDevice.currentDevice().userInterfaceIdiom == .Pad) ? "grid" : "list"
+            "viewType": (UIDevice.currentDevice().userInterfaceIdiom == .Pad) ? "grid" : "list",
+            "favorites": []
         ])
     }
 
