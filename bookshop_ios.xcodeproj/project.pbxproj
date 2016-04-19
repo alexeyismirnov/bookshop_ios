@@ -17,6 +17,25 @@
 		8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */; };
 		8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */; };
 		8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */; };
+		8A402D6B1CC5D4A7007FA8A6 /* launch-hd4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */; };
+		8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */; };
+		8A402D6D1CC5D4A7007FA8A6 /* launch-hd5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */; };
+		8A402D6E1CC5D4A7007FA8A6 /* launch-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D641CC5D4A7007FA8A6 /* launch-ipad.png */; };
+		8A402D6F1CC5D4A7007FA8A6 /* launch-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D651CC5D4A7007FA8A6 /* launch-ipad@2x.png */; };
+		8A402D701CC5D4A7007FA8A6 /* launch-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D661CC5D4A7007FA8A6 /* launch-iphone@2x.png */; };
+		8A402D711CC5D4A7007FA8A6 /* launch-iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D671CC5D4A7007FA8A6 /* launch-iphone4.png */; };
+		8A402D721CC5D4A7007FA8A6 /* launch-iphone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D681CC5D4A7007FA8A6 /* launch-iphone4@2x.png */; };
+		8A402D731CC5D4A7007FA8A6 /* launch-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D691CC5D4A7007FA8A6 /* launch-landscape.png */; };
+		8A402D741CC5D4A7007FA8A6 /* launch-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D6A1CC5D4A7007FA8A6 /* launch-landscape@2x.png */; };
+		8A402D7E1CC5DB43007FA8A6 /* bookshop29.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D751CC5DB43007FA8A6 /* bookshop29.png */; };
+		8A402D7F1CC5DB43007FA8A6 /* bookshop40.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D761CC5DB43007FA8A6 /* bookshop40.png */; };
+		8A402D801CC5DB43007FA8A6 /* bookshop58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D771CC5DB43007FA8A6 /* bookshop58.png */; };
+		8A402D811CC5DB43007FA8A6 /* bookshop76.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D781CC5DB43007FA8A6 /* bookshop76.png */; };
+		8A402D821CC5DB43007FA8A6 /* bookshop80.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D791CC5DB43007FA8A6 /* bookshop80.png */; };
+		8A402D831CC5DB43007FA8A6 /* bookshop87.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7A1CC5DB43007FA8A6 /* bookshop87.png */; };
+		8A402D841CC5DB43007FA8A6 /* bookshop120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7B1CC5DB43007FA8A6 /* bookshop120.png */; };
+		8A402D851CC5DB43007FA8A6 /* bookshop152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7C1CC5DB43007FA8A6 /* bookshop152.png */; };
+		8A402D861CC5DB43007FA8A6 /* bookshop180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7D1CC5DB43007FA8A6 /* bookshop180.png */; };
 		8A465CC51CC4B8E800153973 /* stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC31CC4B8E800153973 /* stop.pdf */; };
 		8A465CC61CC4B8E800153973 /* trash.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC41CC4B8E800153973 /* trash.pdf */; };
 		8A546AEC1CB747F90090CFDA /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */; };
@@ -40,7 +59,6 @@
 		8AE53C2F1CAA1C73005BFA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */; };
 		8AE53C341CAA1C73005BFA1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C321CAA1C73005BFA1B /* Main.storyboard */; };
 		8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C351CAA1C73005BFA1B /* Assets.xcassets */; };
-		8AE53C391CAA1C73005BFA1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C371CAA1C73005BFA1B /* LaunchScreen.storyboard */; };
 		8AE53C451CAA2C00005BFA1B /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C441CAA2C00005BFA1B /* library.pdf */; };
 		8AE53C471CAA2C32005BFA1B /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C461CAA2C32005BFA1B /* options.pdf */; };
 		8AE53C491CAA2E7B005BFA1B /* mybooks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE53C481CAA2E7B005BFA1B /* mybooks.pdf */; };
@@ -67,6 +85,25 @@
 		8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ru.plist; sourceTree = "<group>"; };
 		8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_cn.plist; sourceTree = "<group>"; };
 		8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_hk.plist; sourceTree = "<group>"; };
+		8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd4.7.png"; sourceTree = "<group>"; };
+		8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5-landscape.png"; sourceTree = "<group>"; };
+		8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5.png"; sourceTree = "<group>"; };
+		8A402D641CC5D4A7007FA8A6 /* launch-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad.png"; sourceTree = "<group>"; };
+		8A402D651CC5D4A7007FA8A6 /* launch-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad@2x.png"; sourceTree = "<group>"; };
+		8A402D661CC5D4A7007FA8A6 /* launch-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone@2x.png"; sourceTree = "<group>"; };
+		8A402D671CC5D4A7007FA8A6 /* launch-iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone4.png"; sourceTree = "<group>"; };
+		8A402D681CC5D4A7007FA8A6 /* launch-iphone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone4@2x.png"; sourceTree = "<group>"; };
+		8A402D691CC5D4A7007FA8A6 /* launch-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-landscape.png"; sourceTree = "<group>"; };
+		8A402D6A1CC5D4A7007FA8A6 /* launch-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-landscape@2x.png"; sourceTree = "<group>"; };
+		8A402D751CC5DB43007FA8A6 /* bookshop29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop29.png; sourceTree = "<group>"; };
+		8A402D761CC5DB43007FA8A6 /* bookshop40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop40.png; sourceTree = "<group>"; };
+		8A402D771CC5DB43007FA8A6 /* bookshop58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop58.png; sourceTree = "<group>"; };
+		8A402D781CC5DB43007FA8A6 /* bookshop76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop76.png; sourceTree = "<group>"; };
+		8A402D791CC5DB43007FA8A6 /* bookshop80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop80.png; sourceTree = "<group>"; };
+		8A402D7A1CC5DB43007FA8A6 /* bookshop87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop87.png; sourceTree = "<group>"; };
+		8A402D7B1CC5DB43007FA8A6 /* bookshop120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop120.png; sourceTree = "<group>"; };
+		8A402D7C1CC5DB43007FA8A6 /* bookshop152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop152.png; sourceTree = "<group>"; };
+		8A402D7D1CC5DB43007FA8A6 /* bookshop180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop180.png; sourceTree = "<group>"; };
 		8A465CC31CC4B8E800153973 /* stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = stop.pdf; sourceTree = "<group>"; };
 		8A465CC41CC4B8E800153973 /* trash.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = trash.pdf; sourceTree = "<group>"; };
 		8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +131,6 @@
 		8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE53C331CAA1C73005BFA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AE53C351CAA1C73005BFA1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8AE53C381CAA1C73005BFA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AE53C3A1CAA1C73005BFA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AE53C441CAA2C00005BFA1B /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8AE53C461CAA2C32005BFA1B /* options.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = options.pdf; sourceTree = "<group>"; };
@@ -176,7 +212,6 @@
 				8A1183EB1CBB942B00AA7C3E /* PopoverViewController.swift */,
 				8AE53C321CAA1C73005BFA1B /* Main.storyboard */,
 				8AE53C351CAA1C73005BFA1B /* Assets.xcassets */,
-				8AE53C371CAA1C73005BFA1B /* LaunchScreen.storyboard */,
 				8AE53C3A1CAA1C73005BFA1B /* Info.plist */,
 				8AE43D5B1CAB856000B59632 /* bookshop_ios-Bridging-Header.h */,
 				8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */,
@@ -189,6 +224,25 @@
 		8AE53C431CAA2B8E005BFA1B /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8A402D751CC5DB43007FA8A6 /* bookshop29.png */,
+				8A402D761CC5DB43007FA8A6 /* bookshop40.png */,
+				8A402D771CC5DB43007FA8A6 /* bookshop58.png */,
+				8A402D781CC5DB43007FA8A6 /* bookshop76.png */,
+				8A402D791CC5DB43007FA8A6 /* bookshop80.png */,
+				8A402D7A1CC5DB43007FA8A6 /* bookshop87.png */,
+				8A402D7B1CC5DB43007FA8A6 /* bookshop120.png */,
+				8A402D7C1CC5DB43007FA8A6 /* bookshop152.png */,
+				8A402D7D1CC5DB43007FA8A6 /* bookshop180.png */,
+				8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */,
+				8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */,
+				8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */,
+				8A402D641CC5D4A7007FA8A6 /* launch-ipad.png */,
+				8A402D651CC5D4A7007FA8A6 /* launch-ipad@2x.png */,
+				8A402D661CC5D4A7007FA8A6 /* launch-iphone@2x.png */,
+				8A402D671CC5D4A7007FA8A6 /* launch-iphone4.png */,
+				8A402D681CC5D4A7007FA8A6 /* launch-iphone4@2x.png */,
+				8A402D691CC5D4A7007FA8A6 /* launch-landscape.png */,
+				8A402D6A1CC5D4A7007FA8A6 /* launch-landscape@2x.png */,
 				8A465CC31CC4B8E800153973 /* stop.pdf */,
 				8A465CC41CC4B8E800153973 /* trash.pdf */,
 				8A670FCD1CBCEF3A00B27365 /* menu_star.pdf */,
@@ -259,6 +313,7 @@
 				TargetAttributes = {
 					8AE53C2A1CAA1C72005BFA1B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 3NQ697ND22;
 					};
 				};
 			};
@@ -286,24 +341,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE53C451CAA2C00005BFA1B /* library.pdf in Resources */,
+				8A402D831CC5DB43007FA8A6 /* bookshop87.png in Resources */,
 				8A546AEE1CB74CC20090CFDA /* flag_us.pdf in Resources */,
 				8AE53C491CAA2E7B005BFA1B /* mybooks.pdf in Resources */,
-				8AE53C391CAA1C73005BFA1B /* LaunchScreen.storyboard in Resources */,
+				8A402D721CC5D4A7007FA8A6 /* launch-iphone4@2x.png in Resources */,
+				8A402D6D1CC5D4A7007FA8A6 /* launch-hd5.5.png in Resources */,
 				8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */,
+				8A402D861CC5DB43007FA8A6 /* bookshop180.png in Resources */,
+				8A402D821CC5DB43007FA8A6 /* bookshop80.png in Resources */,
+				8A402D741CC5D4A7007FA8A6 /* launch-landscape@2x.png in Resources */,
+				8A402D6E1CC5D4A7007FA8A6 /* launch-ipad.png in Resources */,
 				8A00960A1CB2555F005A2980 /* view_list.pdf in Resources */,
+				8A402D6B1CC5D4A7007FA8A6 /* launch-hd4.7.png in Resources */,
 				8A546AF21CB74F4D0090CFDA /* flag_cn.pdf in Resources */,
 				8A465CC61CC4B8E800153973 /* trash.pdf in Resources */,
+				8A402D851CC5DB43007FA8A6 /* bookshop152.png in Resources */,
+				8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */,
 				8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */,
+				8A402D731CC5D4A7007FA8A6 /* launch-landscape.png in Resources */,
+				8A402D801CC5DB43007FA8A6 /* bookshop58.png in Resources */,
+				8A402D6F1CC5D4A7007FA8A6 /* launch-ipad@2x.png in Resources */,
+				8A402D7E1CC5DB43007FA8A6 /* bookshop29.png in Resources */,
 				8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */,
 				8A670FC11CBC944A00B27365 /* star.pdf in Resources */,
+				8A402D841CC5DB43007FA8A6 /* bookshop120.png in Resources */,
 				8A546AF41CB74F4D0090CFDA /* flag_ru.pdf in Resources */,
 				8A670FC81CBCE84800B27365 /* book_epub.pdf in Resources */,
 				8A670FCE1CBCEF3A00B27365 /* menu_star.pdf in Resources */,
 				8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */,
 				8A465CC51CC4B8E800153973 /* stop.pdf in Resources */,
 				8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */,
+				8A402D7F1CC5DB43007FA8A6 /* bookshop40.png in Resources */,
+				8A402D711CC5D4A7007FA8A6 /* launch-iphone4.png in Resources */,
 				8A0096091CB2555F005A2980 /* view_grid.pdf in Resources */,
 				8AE53C471CAA2C32005BFA1B /* options.pdf in Resources */,
+				8A402D811CC5DB43007FA8A6 /* bookshop76.png in Resources */,
+				8A402D701CC5D4A7007FA8A6 /* launch-iphone@2x.png in Resources */,
 				8AE53C341CAA1C73005BFA1B /* Main.storyboard in Resources */,
 				8A670FCC1CBCEDE800B27365 /* info.pdf in Resources */,
 				8A670FCA1CBCEB5C00B27365 /* book_pdf.pdf in Resources */,
@@ -394,14 +467,6 @@
 				8AE53C331CAA1C73005BFA1B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8AE53C371CAA1C73005BFA1B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8AE53C381CAA1C73005BFA1B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -495,6 +560,8 @@
 			baseConfigurationReference = 0415D24D4F3E2D4AEFE4EB0C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = bookshop_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -512,6 +579,8 @@
 			baseConfigurationReference = 85A10100191D5C2284D78DEB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = bookshop_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
