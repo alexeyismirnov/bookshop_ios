@@ -174,6 +174,13 @@ extension UIImageView {
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         guard let documentDirectory:NSURL = urls.first else { return }
         
+        if let bundleURL = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: "") {
+            print("found in bundle \(link)")
+            let data = NSData(contentsOfURL: bundleURL)!
+            image = UIImage(data: data)
+            return
+        }
+        
         let localURL = documentDirectory.URLByAppendingPathComponent(url.lastPathComponent!)
             
         if localURL.checkResourceIsReachableAndReturnError(nil) {

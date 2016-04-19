@@ -36,6 +36,38 @@
 		8A402D841CC5DB43007FA8A6 /* bookshop120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7B1CC5DB43007FA8A6 /* bookshop120.png */; };
 		8A402D851CC5DB43007FA8A6 /* bookshop152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7C1CC5DB43007FA8A6 /* bookshop152.png */; };
 		8A402D861CC5DB43007FA8A6 /* bookshop180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D7D1CC5DB43007FA8A6 /* bookshop180.png */; };
+		8A402DA81CC61DAD007FA8A6 /* baptism1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D881CC61DAD007FA8A6 /* baptism1.jpg */; };
+		8A402DA91CC61DAD007FA8A6 /* cover_en1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D891CC61DAD007FA8A6 /* cover_en1.jpg */; };
+		8A402DAA1CC61DAD007FA8A6 /* cover_ru1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8A1CC61DAD007FA8A6 /* cover_ru1.jpg */; };
+		8A402DAB1CC61DAD007FA8A6 /* damaskin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8B1CC61DAD007FA8A6 /* damaskin.jpg */; };
+		8A402DAC1CC61DAD007FA8A6 /* EasterKanon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8C1CC61DAD007FA8A6 /* EasterKanon.jpg */; };
+		8A402DAD1CC61DAD007FA8A6 /* feasts1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8D1CC61DAD007FA8A6 /* feasts1.jpg */; };
+		8A402DAE1CC61DAD007FA8A6 /* HOURS_Cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8E1CC61DAD007FA8A6 /* HOURS_Cover.jpg */; };
+		8A402DAF1CC61DAD007FA8A6 /* ispoved.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D8F1CC61DAD007FA8A6 /* ispoved.jpg */; };
+		8A402DB01CC61DAD007FA8A6 /* katechisis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D901CC61DAD007FA8A6 /* katechisis.jpg */; };
+		8A402DB11CC61DAD007FA8A6 /* leaflets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D911CC61DAD007FA8A6 /* leaflets.jpg */; };
+		8A402DB21CC61DAD007FA8A6 /* litcover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D921CC61DAD007FA8A6 /* litcover.jpg */; };
+		8A402DB31CC61DAD007FA8A6 /* liturguia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D931CC61DAD007FA8A6 /* liturguia.jpg */; };
+		8A402DB41CC61DAD007FA8A6 /* LiturgyCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */; };
+		8A402DB51CC61DAD007FA8A6 /* maria1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D951CC61DAD007FA8A6 /* maria1.jpg */; };
+		8A402DB61CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */; };
+		8A402DB71CC61DAD007FA8A6 /* molitvoslov2_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */; };
+		8A402DB81CC61DAD007FA8A6 /* monahoscover_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */; };
+		8A402DB91CC61DAD007FA8A6 /* oblog_ispoved.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */; };
+		8A402DBA1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */; };
+		8A402DBB1CC61DAD007FA8A6 /* obloga_ob5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9B1CC61DAD007FA8A6 /* obloga_ob5.jpg */; };
+		8A402DBC1CC61DAD007FA8A6 /* pravoslavie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9C1CC61DAD007FA8A6 /* pravoslavie.jpg */; };
+		8A402DBD1CC61DAD007FA8A6 /* sergiy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9D1CC61DAD007FA8A6 /* sergiy.jpg */; };
+		8A402DBE1CC61DAD007FA8A6 /* ServiceVespers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9E1CC61DAD007FA8A6 /* ServiceVespers.jpg */; };
+		8A402DBF1CC61DAD007FA8A6 /* simeon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9F1CC61DAD007FA8A6 /* simeon1.jpg */; };
+		8A402DC01CC61DAD007FA8A6 /* stsl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA01CC61DAD007FA8A6 /* stsl.jpg */; };
+		8A402DC11CC61DAD007FA8A6 /* Synaxarion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA11CC61DAD007FA8A6 /* Synaxarion.jpg */; };
+		8A402DC21CC61DAD007FA8A6 /* sysoev2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA21CC61DAD007FA8A6 /* sysoev2.jpg */; };
+		8A402DC31CC61DAD007FA8A6 /* thanks1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA31CC61DAD007FA8A6 /* thanks1.jpg */; };
+		8A402DC41CC61DAD007FA8A6 /* typica1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA41CC61DAD007FA8A6 /* typica1.jpg */; };
+		8A402DC51CC61DAD007FA8A6 /* vespers1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA51CC61DAD007FA8A6 /* vespers1.jpg */; };
+		8A402DC61CC61DAD007FA8A6 /* whoisjesus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA61CC61DAD007FA8A6 /* whoisjesus.jpg */; };
+		8A402DC71CC61DAD007FA8A6 /* Zhitia_optin1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402DA71CC61DAD007FA8A6 /* Zhitia_optin1.jpg */; };
 		8A465CC51CC4B8E800153973 /* stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC31CC4B8E800153973 /* stop.pdf */; };
 		8A465CC61CC4B8E800153973 /* trash.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A465CC41CC4B8E800153973 /* trash.pdf */; };
 		8A546AEC1CB747F90090CFDA /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */; };
@@ -104,6 +136,38 @@
 		8A402D7B1CC5DB43007FA8A6 /* bookshop120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop120.png; sourceTree = "<group>"; };
 		8A402D7C1CC5DB43007FA8A6 /* bookshop152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop152.png; sourceTree = "<group>"; };
 		8A402D7D1CC5DB43007FA8A6 /* bookshop180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshop180.png; sourceTree = "<group>"; };
+		8A402D881CC61DAD007FA8A6 /* baptism1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baptism1.jpg; sourceTree = "<group>"; };
+		8A402D891CC61DAD007FA8A6 /* cover_en1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_en1.jpg; sourceTree = "<group>"; };
+		8A402D8A1CC61DAD007FA8A6 /* cover_ru1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_ru1.jpg; sourceTree = "<group>"; };
+		8A402D8B1CC61DAD007FA8A6 /* damaskin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = damaskin.jpg; sourceTree = "<group>"; };
+		8A402D8C1CC61DAD007FA8A6 /* EasterKanon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EasterKanon.jpg; sourceTree = "<group>"; };
+		8A402D8D1CC61DAD007FA8A6 /* feasts1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feasts1.jpg; sourceTree = "<group>"; };
+		8A402D8E1CC61DAD007FA8A6 /* HOURS_Cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HOURS_Cover.jpg; sourceTree = "<group>"; };
+		8A402D8F1CC61DAD007FA8A6 /* ispoved.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ispoved.jpg; sourceTree = "<group>"; };
+		8A402D901CC61DAD007FA8A6 /* katechisis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = katechisis.jpg; sourceTree = "<group>"; };
+		8A402D911CC61DAD007FA8A6 /* leaflets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leaflets.jpg; sourceTree = "<group>"; };
+		8A402D921CC61DAD007FA8A6 /* litcover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = litcover.jpg; sourceTree = "<group>"; };
+		8A402D931CC61DAD007FA8A6 /* liturguia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liturguia.jpg; sourceTree = "<group>"; };
+		8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LiturgyCover.jpg; sourceTree = "<group>"; };
+		8A402D951CC61DAD007FA8A6 /* maria1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maria1.jpg; sourceTree = "<group>"; };
+		8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MatinsFrstHr_Cover.jpg; sourceTree = "<group>"; };
+		8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = molitvoslov2_1.jpg; sourceTree = "<group>"; };
+		8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monahoscover_1.jpg; sourceTree = "<group>"; };
+		8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oblog_ispoved.jpg; sourceTree = "<group>"; };
+		8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oblog_prichastie_prit_3.jpg; sourceTree = "<group>"; };
+		8A402D9B1CC61DAD007FA8A6 /* obloga_ob5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = obloga_ob5.jpg; sourceTree = "<group>"; };
+		8A402D9C1CC61DAD007FA8A6 /* pravoslavie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pravoslavie.jpg; sourceTree = "<group>"; };
+		8A402D9D1CC61DAD007FA8A6 /* sergiy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sergiy.jpg; sourceTree = "<group>"; };
+		8A402D9E1CC61DAD007FA8A6 /* ServiceVespers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ServiceVespers.jpg; sourceTree = "<group>"; };
+		8A402D9F1CC61DAD007FA8A6 /* simeon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = simeon1.jpg; sourceTree = "<group>"; };
+		8A402DA01CC61DAD007FA8A6 /* stsl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stsl.jpg; sourceTree = "<group>"; };
+		8A402DA11CC61DAD007FA8A6 /* Synaxarion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Synaxarion.jpg; sourceTree = "<group>"; };
+		8A402DA21CC61DAD007FA8A6 /* sysoev2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sysoev2.jpg; sourceTree = "<group>"; };
+		8A402DA31CC61DAD007FA8A6 /* thanks1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thanks1.jpg; sourceTree = "<group>"; };
+		8A402DA41CC61DAD007FA8A6 /* typica1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = typica1.jpg; sourceTree = "<group>"; };
+		8A402DA51CC61DAD007FA8A6 /* vespers1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vespers1.jpg; sourceTree = "<group>"; };
+		8A402DA61CC61DAD007FA8A6 /* whoisjesus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whoisjesus.jpg; sourceTree = "<group>"; };
+		8A402DA71CC61DAD007FA8A6 /* Zhitia_optin1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Zhitia_optin1.jpg; sourceTree = "<group>"; };
 		8A465CC31CC4B8E800153973 /* stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = stop.pdf; sourceTree = "<group>"; };
 		8A465CC41CC4B8E800153973 /* trash.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = trash.pdf; sourceTree = "<group>"; };
 		8A546AEB1CB747F90090CFDA /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +235,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8A402D871CC61D4F007FA8A6 /* covers */ = {
+			isa = PBXGroup;
+			children = (
+				8A402D881CC61DAD007FA8A6 /* baptism1.jpg */,
+				8A402D891CC61DAD007FA8A6 /* cover_en1.jpg */,
+				8A402D8A1CC61DAD007FA8A6 /* cover_ru1.jpg */,
+				8A402D8B1CC61DAD007FA8A6 /* damaskin.jpg */,
+				8A402D8C1CC61DAD007FA8A6 /* EasterKanon.jpg */,
+				8A402D8D1CC61DAD007FA8A6 /* feasts1.jpg */,
+				8A402D8E1CC61DAD007FA8A6 /* HOURS_Cover.jpg */,
+				8A402D8F1CC61DAD007FA8A6 /* ispoved.jpg */,
+				8A402D901CC61DAD007FA8A6 /* katechisis.jpg */,
+				8A402D911CC61DAD007FA8A6 /* leaflets.jpg */,
+				8A402D921CC61DAD007FA8A6 /* litcover.jpg */,
+				8A402D931CC61DAD007FA8A6 /* liturguia.jpg */,
+				8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */,
+				8A402D951CC61DAD007FA8A6 /* maria1.jpg */,
+				8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */,
+				8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */,
+				8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */,
+				8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */,
+				8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */,
+				8A402D9B1CC61DAD007FA8A6 /* obloga_ob5.jpg */,
+				8A402D9C1CC61DAD007FA8A6 /* pravoslavie.jpg */,
+				8A402D9D1CC61DAD007FA8A6 /* sergiy.jpg */,
+				8A402D9E1CC61DAD007FA8A6 /* ServiceVespers.jpg */,
+				8A402D9F1CC61DAD007FA8A6 /* simeon1.jpg */,
+				8A402DA01CC61DAD007FA8A6 /* stsl.jpg */,
+				8A402DA11CC61DAD007FA8A6 /* Synaxarion.jpg */,
+				8A402DA21CC61DAD007FA8A6 /* sysoev2.jpg */,
+				8A402DA31CC61DAD007FA8A6 /* thanks1.jpg */,
+				8A402DA41CC61DAD007FA8A6 /* typica1.jpg */,
+				8A402DA51CC61DAD007FA8A6 /* vespers1.jpg */,
+				8A402DA61CC61DAD007FA8A6 /* whoisjesus.jpg */,
+				8A402DA71CC61DAD007FA8A6 /* Zhitia_optin1.jpg */,
+			);
+			path = covers;
+			sourceTree = "<group>";
+		};
 		8AE53C221CAA1C72005BFA1B = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +295,7 @@
 		8AE53C2D1CAA1C73005BFA1B /* bookshop_ios */ = {
 			isa = PBXGroup;
 			children = (
+				8A402D871CC61D4F007FA8A6 /* covers */,
 				8AE53C431CAA2B8E005BFA1B /* icons */,
 				8AE53C2E1CAA1C73005BFA1B /* AppDelegate.swift */,
 				8AE53C4C1CAA2FEA005BFA1B /* Extensions.swift */,
@@ -343,41 +447,73 @@
 				8AE53C451CAA2C00005BFA1B /* library.pdf in Resources */,
 				8A402D831CC5DB43007FA8A6 /* bookshop87.png in Resources */,
 				8A546AEE1CB74CC20090CFDA /* flag_us.pdf in Resources */,
+				8A402DB61CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg in Resources */,
 				8AE53C491CAA2E7B005BFA1B /* mybooks.pdf in Resources */,
+				8A402DB01CC61DAD007FA8A6 /* katechisis.jpg in Resources */,
+				8A402DC01CC61DAD007FA8A6 /* stsl.jpg in Resources */,
 				8A402D721CC5D4A7007FA8A6 /* launch-iphone4@2x.png in Resources */,
 				8A402D6D1CC5D4A7007FA8A6 /* launch-hd5.5.png in Resources */,
+				8A402DBC1CC61DAD007FA8A6 /* pravoslavie.jpg in Resources */,
+				8A402DB21CC61DAD007FA8A6 /* litcover.jpg in Resources */,
 				8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */,
+				8A402DC51CC61DAD007FA8A6 /* vespers1.jpg in Resources */,
+				8A402DAB1CC61DAD007FA8A6 /* damaskin.jpg in Resources */,
 				8A402D861CC5DB43007FA8A6 /* bookshop180.png in Resources */,
 				8A402D821CC5DB43007FA8A6 /* bookshop80.png in Resources */,
+				8A402DBA1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg in Resources */,
 				8A402D741CC5D4A7007FA8A6 /* launch-landscape@2x.png in Resources */,
+				8A402DA81CC61DAD007FA8A6 /* baptism1.jpg in Resources */,
+				8A402DC41CC61DAD007FA8A6 /* typica1.jpg in Resources */,
 				8A402D6E1CC5D4A7007FA8A6 /* launch-ipad.png in Resources */,
 				8A00960A1CB2555F005A2980 /* view_list.pdf in Resources */,
 				8A402D6B1CC5D4A7007FA8A6 /* launch-hd4.7.png in Resources */,
 				8A546AF21CB74F4D0090CFDA /* flag_cn.pdf in Resources */,
 				8A465CC61CC4B8E800153973 /* trash.pdf in Resources */,
+				8A402DB91CC61DAD007FA8A6 /* oblog_ispoved.jpg in Resources */,
 				8A402D851CC5DB43007FA8A6 /* bookshop152.png in Resources */,
 				8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */,
 				8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */,
+				8A402DB11CC61DAD007FA8A6 /* leaflets.jpg in Resources */,
+				8A402DB41CC61DAD007FA8A6 /* LiturgyCover.jpg in Resources */,
+				8A402DAF1CC61DAD007FA8A6 /* ispoved.jpg in Resources */,
 				8A402D731CC5D4A7007FA8A6 /* launch-landscape.png in Resources */,
+				8A402DB81CC61DAD007FA8A6 /* monahoscover_1.jpg in Resources */,
+				8A402DBB1CC61DAD007FA8A6 /* obloga_ob5.jpg in Resources */,
 				8A402D801CC5DB43007FA8A6 /* bookshop58.png in Resources */,
 				8A402D6F1CC5D4A7007FA8A6 /* launch-ipad@2x.png in Resources */,
+				8A402DAE1CC61DAD007FA8A6 /* HOURS_Cover.jpg in Resources */,
+				8A402DC31CC61DAD007FA8A6 /* thanks1.jpg in Resources */,
 				8A402D7E1CC5DB43007FA8A6 /* bookshop29.png in Resources */,
 				8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */,
 				8A670FC11CBC944A00B27365 /* star.pdf in Resources */,
+				8A402DB71CC61DAD007FA8A6 /* molitvoslov2_1.jpg in Resources */,
 				8A402D841CC5DB43007FA8A6 /* bookshop120.png in Resources */,
+				8A402DBE1CC61DAD007FA8A6 /* ServiceVespers.jpg in Resources */,
+				8A402DC61CC61DAD007FA8A6 /* whoisjesus.jpg in Resources */,
+				8A402DAD1CC61DAD007FA8A6 /* feasts1.jpg in Resources */,
+				8A402DA91CC61DAD007FA8A6 /* cover_en1.jpg in Resources */,
+				8A402DB31CC61DAD007FA8A6 /* liturguia.jpg in Resources */,
 				8A546AF41CB74F4D0090CFDA /* flag_ru.pdf in Resources */,
 				8A670FC81CBCE84800B27365 /* book_epub.pdf in Resources */,
+				8A402DB51CC61DAD007FA8A6 /* maria1.jpg in Resources */,
 				8A670FCE1CBCEF3A00B27365 /* menu_star.pdf in Resources */,
 				8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */,
 				8A465CC51CC4B8E800153973 /* stop.pdf in Resources */,
 				8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */,
 				8A402D7F1CC5DB43007FA8A6 /* bookshop40.png in Resources */,
 				8A402D711CC5D4A7007FA8A6 /* launch-iphone4.png in Resources */,
+				8A402DC21CC61DAD007FA8A6 /* sysoev2.jpg in Resources */,
+				8A402DC71CC61DAD007FA8A6 /* Zhitia_optin1.jpg in Resources */,
 				8A0096091CB2555F005A2980 /* view_grid.pdf in Resources */,
+				8A402DBF1CC61DAD007FA8A6 /* simeon1.jpg in Resources */,
+				8A402DAA1CC61DAD007FA8A6 /* cover_ru1.jpg in Resources */,
 				8AE53C471CAA2C32005BFA1B /* options.pdf in Resources */,
 				8A402D811CC5DB43007FA8A6 /* bookshop76.png in Resources */,
 				8A402D701CC5D4A7007FA8A6 /* launch-iphone@2x.png in Resources */,
 				8AE53C341CAA1C73005BFA1B /* Main.storyboard in Resources */,
+				8A402DBD1CC61DAD007FA8A6 /* sergiy.jpg in Resources */,
+				8A402DAC1CC61DAD007FA8A6 /* EasterKanon.jpg in Resources */,
+				8A402DC11CC61DAD007FA8A6 /* Synaxarion.jpg in Resources */,
 				8A670FCC1CBCEDE800B27365 /* info.pdf in Resources */,
 				8A670FCA1CBCEB5C00B27365 /* book_pdf.pdf in Resources */,
 			);

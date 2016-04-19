@@ -4,6 +4,8 @@ import requests
 import io, json
 import lxml.html
 
+# xargs -n 1 curl -O < urls.txt
+
 images = {}
 r = requests.get('http://www.orthodoxbookshop.asia/static/productimage.json')
 
@@ -19,6 +21,8 @@ output = {"index": {},
 for book in  r.json():
     download_url = book["fields"]["download_url"]
     if download_url and "paidbooks" not in download_url:
+
+        print "http://orthodoxbookshop.asia/media/" + images[book["pk"]]
 
         output["index"][book["pk"]] = { "title_en"         : book["fields"]["title_en"],
                                         "title_ru"         : book["fields"]["title_ru"],
