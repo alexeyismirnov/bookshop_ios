@@ -12,6 +12,21 @@ class TableViewController : UITableViewController, MVCInterface {
     
     var delegate : BooksViewController!
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if delegate.model.books.count > 0 {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .SingleLine
+            return 1
+            
+        } else {
+            let rect = CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)
+            delegate.emptyFolderLabel.frame = rect
+            tableView.backgroundView = delegate.emptyFolderLabel
+            tableView.separatorStyle = .None
+            return 0
+        }
+    }
+ 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate.model.books.count
     }

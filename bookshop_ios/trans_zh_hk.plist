@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Done</key>
+	<string>完成</string>
+	<key>No books in this folder</key>
+	<string>資料夾內無书</string>
+	<key>Loading...</key>
+	<string>載入中...</string>
+	<key>Cannot connect to Internet</key>
+	<string>無法連接至網路</string>
 	<key>Delete</key>
 	<string>刪除</string>
 	<key>cancelled</key>

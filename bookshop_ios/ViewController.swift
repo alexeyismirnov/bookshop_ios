@@ -38,6 +38,7 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     var model : BooksModel!
     var popoverController : WYPopoverController?
     
+    var emptyFolderLabel : UILabel!
     var viewListButton : UIBarButtonItem!
     var viewGridButton : UIBarButtonItem!
     var optionsButton :  UIBarButtonItem!
@@ -45,26 +46,13 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewListButton = UIBarButtonItem(image: UIImage(named: "view_list"),
-                                         style: .Plain,
-                                         target: self,
-                                         action: #selector(BooksViewController.switchViewType))
-        
-        viewGridButton = UIBarButtonItem(image: UIImage(named: "view_grid"),
-                                         style: .Plain,
-                                         target: self,
-                                         action: #selector(BooksViewController.switchViewType))
-
-        optionsButton = UIBarButtonItem(image: UIImage(named: "options"),
-                                         style: .Plain,
-                                         target: self,
-                                         action: #selector(BooksViewController.showOptions))
-
         DownloadManager.allViews.append(self)
         
+        createButtons()
         createModel()
         createViewController()
         
+        reload()
         modelReload()
         
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -81,6 +69,29 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
                                                          selector: #selector(BooksViewController.createViewController),
                                                          name: viewTypeChangedNotification,
                                                          object: nil)
+    }
+    
+    func createButtons() {
+        viewListButton = UIBarButtonItem(image: UIImage(named: "view_list"),
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(BooksViewController.switchViewType))
+        
+        viewGridButton = UIBarButtonItem(image: UIImage(named: "view_grid"),
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(BooksViewController.switchViewType))
+        
+        optionsButton = UIBarButtonItem(image: UIImage(named: "options"),
+                                        style: .Plain,
+                                        target: self,
+                                        action: #selector(BooksViewController.showOptions))
+
+        emptyFolderLabel = UILabel()
+        emptyFolderLabel.textColor = UIColor.blackColor()
+        emptyFolderLabel.numberOfLines = 0
+        emptyFolderLabel.textAlignment = .Center
+        emptyFolderLabel.font = UIFont(name: "Palatino-Italic", size: 20)
     }
     
     func createModel() {
@@ -114,6 +125,10 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     
     func reload() {
         currentView.reload()
+        
+        let source = DataSource(rawValue: dataSourceId.integerValue)!
+        emptyFolderLabel.text = (source == .Firebase) ? Translate.s("Loading...") : Translate.s("No books in this folder")
+
         (currentView as! UIViewController).title = Translate.s("Orthodox Library")
     }
     

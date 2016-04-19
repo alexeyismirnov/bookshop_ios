@@ -11,6 +11,19 @@ import UIKit
 class CollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout, MVCInterface {
     
     var delegate : BooksViewController!
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        if delegate.model.books.count > 0 {
+            collectionView.backgroundView = nil
+            return 1
+            
+        } else {
+            let rect = CGRectMake(0, 0, collectionView.bounds.size.width, collectionView.bounds.size.height)
+            delegate.emptyFolderLabel.frame = rect
+            collectionView.backgroundView = delegate.emptyFolderLabel
+            return 0
+        }
+    }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate.model.books.count

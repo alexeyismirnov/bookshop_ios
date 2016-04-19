@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Done</key>
+	<string>Готово</string>
+	<key>No books in this folder</key>
+	<string>В этой папке нет книг</string>
+	<key>Loading...</key>
+	<string>Загрузка...</string>
+	<key>Cannot connect to Internet</key>
+	<string>Невозможно подключиться к Интернету</string>
 	<key>Delete</key>
 	<string>Удалить</string>
 	<key>cancelled</key>
