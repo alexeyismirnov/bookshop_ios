@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2Lf-Yp-Y4S"; */
+"2Lf-Yp-Y4S.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "3yZ-9P-bVK"; */
+"3yZ-9P-bVK.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "My books"; ObjectID = "43o-NY-3F6"; */
+"43o-NY-3F6.title" = "My books";
+
+/* Class = "UILabel"; text = "正體中文"; ObjectID = "7dp-Tl-s4n"; */
+"7dp-Tl-s4n.text" = "正體中文";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "7fF-eA-tYo"; */
+"7fF-eA-tYo.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8OT-rg-XRp"; */
+"8OT-rg-XRp.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; headerTitle = "COPYRIGHT"; ObjectID = "AFY-F8-FES"; */
+"AFY-F8-FES.headerTitle" = "COPYRIGHT";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Bax-Qi-HPf"; */
+"Bax-Qi-HPf.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "CXy-i4-5vE"; */
+"CXy-i4-5vE.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "HMv-hW-z5J"; */
+"HMv-hW-z5J.text" = "Title";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "Ifg-jd-8We"; */
+"Ifg-jd-8We.text" = "English";
+
+/* Class = "UITabBarItem"; title = "Library"; ObjectID = "NqM-eD-b0L"; */
+"NqM-eD-b0L.title" = "Library";
+
+/* Class = "UITableViewSection"; headerTitle = "LANGUAGE"; ObjectID = "P7Y-mU-2Lb"; */
+"P7Y-mU-2Lb.headerTitle" = "LANGUAGE";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Prk-vF-HHO"; */
+"Prk-vF-HHO.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Wwl-on-EGg"; */
+"Wwl-on-EGg.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Xvq-3I-EXk"; */
+"Xvq-3I-EXk.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ZvE-TD-ypq"; */
+"ZvE-TD-ypq.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "auJ-nz-whH"; */
+"auJ-nz-whH.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "cxf-jY-qJ3"; */
+"cxf-jY-qJ3.text" = "Detail";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "deF-xD-KO3"; */
+"deF-xD-KO3.text" = "Label";
+
+/* Class = "UILabel"; text = "Русский"; ObjectID = "iYE-iC-O4T"; */
+"iYE-iC-O4T.text" = "Русский";
+
+/* Class = "UILabel"; text = "简体中文"; ObjectID = "pfg-Fk-bAA"; */
+"pfg-Fk-bAA.text" = "简体中文";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "qFH-Kd-oF8"; */
+"qFH-Kd-oF8.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ttf-iL-Boy"; */
+"ttf-iL-Boy.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "xBM-ZM-7Xk"; */
+"xBM-ZM-7Xk.normalTitle" = "Done";
