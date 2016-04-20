@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Done</key>
-	<string>Готово</string>
+	<string>Выбрать</string>
 	<key>No books in this folder</key>
 	<string>В этой папке нет книг</string>
 	<key>Loading...</key>

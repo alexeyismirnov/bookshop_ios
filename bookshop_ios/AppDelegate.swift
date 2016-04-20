@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FolioReaderKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,18 +22,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          NSUserDefaults.standardUserDefaults().registerDefaults([
             "kNightMode": false,
             "language": "en",
+            "firstrun": true,
             "viewType": (UIDevice.currentDevice().userInterfaceIdiom == .Pad) ? "grid" : "list",
             "favorites": []
         ])
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
- 
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let firstRun =  (prefs.objectForKey("firstrun") as! Bool)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         Translate.files = ["trans"]
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        if firstRun {
+            prefs.setObject(false, forKey: "firstrun")
+            prefs.synchronize()
+
+            let nav = storyboard.instantiateViewControllerWithIdentifier("OptionsNav") as! UINavigationController
+            (nav.topViewController as! OptionsViewController).firstRun = true
+            window?.rootViewController = nav
+            
+        } else {
+            window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainView")
+            
+        }
+        window?.makeKeyAndVisible()
         
         return true
     }
-
 
 }
 

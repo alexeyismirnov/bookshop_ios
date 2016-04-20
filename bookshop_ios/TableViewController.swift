@@ -77,8 +77,8 @@ class TableViewController : UITableViewController, MVCInterface {
     }
     
     func cellForPath(path: String) -> UIView? {
-        let index = delegate.model.books.indexOf { $0.download_url == path || $0.epub_url == path }
-        return tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index!, inSection: 0))
+        guard let index = delegate.model.books.indexOf({ $0.download_url == path || $0.epub_url == path }) else { return nil }
+        return tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
     }
 }
 
