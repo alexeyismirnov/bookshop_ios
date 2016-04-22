@@ -18,6 +18,8 @@
 		8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */; };
 		8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */; };
 		8A3960B31CC9D6C7002F693B /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3960B21CC9D6C6002F693B /* Appirater.m */; };
+		8A3960B81CCA0EF9002F693B /* prayerbookSimpl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A3960B61CCA0EF9002F693B /* prayerbookSimpl.jpg */; };
+		8A3960B91CCA0EF9002F693B /* PrayerbookTrad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A3960B71CCA0EF9002F693B /* PrayerbookTrad.jpg */; };
 		8A402D6B1CC5D4A7007FA8A6 /* launch-hd4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */; };
 		8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */; };
 		8A402D6D1CC5D4A7007FA8A6 /* launch-hd5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */; };
@@ -52,7 +54,6 @@
 		8A402DB41CC61DAD007FA8A6 /* LiturgyCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */; };
 		8A402DB51CC61DAD007FA8A6 /* maria1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D951CC61DAD007FA8A6 /* maria1.jpg */; };
 		8A402DB61CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */; };
-		8A402DB71CC61DAD007FA8A6 /* molitvoslov2_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */; };
 		8A402DB81CC61DAD007FA8A6 /* monahoscover_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */; };
 		8A402DB91CC61DAD007FA8A6 /* oblog_ispoved.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */; };
 		8A402DBA1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */; };
@@ -122,6 +123,8 @@
 		8A3960B11CC9D6C6002F693B /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A3960B21CC9D6C6002F693B /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A3960B51CC9D722002F693B /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		8A3960B61CCA0EF9002F693B /* prayerbookSimpl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prayerbookSimpl.jpg; sourceTree = "<group>"; };
+		8A3960B71CCA0EF9002F693B /* PrayerbookTrad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PrayerbookTrad.jpg; sourceTree = "<group>"; };
 		8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd4.7.png"; sourceTree = "<group>"; };
 		8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5-landscape.png"; sourceTree = "<group>"; };
 		8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5.png"; sourceTree = "<group>"; };
@@ -156,7 +159,6 @@
 		8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LiturgyCover.jpg; sourceTree = "<group>"; };
 		8A402D951CC61DAD007FA8A6 /* maria1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maria1.jpg; sourceTree = "<group>"; };
 		8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MatinsFrstHr_Cover.jpg; sourceTree = "<group>"; };
-		8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = molitvoslov2_1.jpg; sourceTree = "<group>"; };
 		8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monahoscover_1.jpg; sourceTree = "<group>"; };
 		8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oblog_ispoved.jpg; sourceTree = "<group>"; };
 		8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oblog_prichastie_prit_3.jpg; sourceTree = "<group>"; };
@@ -247,6 +249,8 @@
 		8A402D871CC61D4F007FA8A6 /* covers */ = {
 			isa = PBXGroup;
 			children = (
+				8A3960B61CCA0EF9002F693B /* prayerbookSimpl.jpg */,
+				8A3960B71CCA0EF9002F693B /* PrayerbookTrad.jpg */,
 				8A402D881CC61DAD007FA8A6 /* baptism1.jpg */,
 				8A402D891CC61DAD007FA8A6 /* cover_en1.jpg */,
 				8A402D8A1CC61DAD007FA8A6 /* cover_ru1.jpg */,
@@ -262,7 +266,6 @@
 				8A402D941CC61DAD007FA8A6 /* LiturgyCover.jpg */,
 				8A402D951CC61DAD007FA8A6 /* maria1.jpg */,
 				8A402D961CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg */,
-				8A402D971CC61DAD007FA8A6 /* molitvoslov2_1.jpg */,
 				8A402D981CC61DAD007FA8A6 /* monahoscover_1.jpg */,
 				8A402D991CC61DAD007FA8A6 /* oblog_ispoved.jpg */,
 				8A402D9A1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg */,
@@ -474,7 +477,9 @@
 				8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */,
 				8A402DC51CC61DAD007FA8A6 /* vespers1.jpg in Resources */,
 				8A42A74A1CC7841B00114978 /* InfoPlist.strings in Resources */,
+				8A3960B81CCA0EF9002F693B /* prayerbookSimpl.jpg in Resources */,
 				8A402DAB1CC61DAD007FA8A6 /* damaskin.jpg in Resources */,
+				8A3960B91CCA0EF9002F693B /* PrayerbookTrad.jpg in Resources */,
 				8A402D861CC5DB43007FA8A6 /* bookshop180.png in Resources */,
 				8A402D821CC5DB43007FA8A6 /* bookshop80.png in Resources */,
 				8A402DBA1CC61DAD007FA8A6 /* oblog_prichastie_prit_3.jpg in Resources */,
@@ -503,7 +508,6 @@
 				8A402D7E1CC5DB43007FA8A6 /* bookshop29.png in Resources */,
 				8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */,
 				8A670FC11CBC944A00B27365 /* star.pdf in Resources */,
-				8A402DB71CC61DAD007FA8A6 /* molitvoslov2_1.jpg in Resources */,
 				8A402D841CC5DB43007FA8A6 /* bookshop120.png in Resources */,
 				8A402DBE1CC61DAD007FA8A6 /* ServiceVespers.jpg in Resources */,
 				8A402DC61CC61DAD007FA8A6 /* whoisjesus.jpg in Resources */,

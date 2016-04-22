@@ -97,13 +97,30 @@ class DetailsViewController : UITableViewController {
         if (detailsSchema[indexPath.row].0 == "date_created") {
             
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             
-            let date = dateFormatter.dateFromString(value!)
+            var date = dateFormatter.dateFromString(value!)
+            
+            if date == nil {
+                dateFormatter.dateFormat = "yyyy-MM"
+                date = dateFormatter.dateFromString(value!)
+            }
         
             let formatter = NSDateFormatter()
             formatter.dateStyle = .ShortStyle
             formatter.timeStyle = .NoStyle
+            
+            switch Translate.language {
+            case "zh_cn":
+                formatter.locale = NSLocale(localeIdentifier: "zh_Hans")
+
+            case "zh_hk":
+                formatter.locale = NSLocale(localeIdentifier: "zh_Hant")
+
+            default:
+                formatter.locale = NSLocale(localeIdentifier: Translate.language)
+                
+            }
             
             cell.detailTextLabel!.text = formatter.stringFromDate(date!)
             

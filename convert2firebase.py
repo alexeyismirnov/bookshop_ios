@@ -30,7 +30,7 @@ for book in  r.json():
                                         "title_zh_hk"      : book["fields"]["title_zh_hk"],
                                         "download_url"     : book["fields"]["download_url"],
                                         "epub_url"         : book["fields"]["epub_url"],
-                                        "date_created"  : book["fields"]["date_created"],
+                                        "date_created"  : book["fields"]["pub_date"],
                                         "image"         : "http://orthodoxbookshop.asia/media/" + images[book["pk"]]
         }
 
@@ -54,7 +54,7 @@ for book in  r.json():
                                 "description_ru"    : lxml.html.fromstring(description_ru).text_content() if len(description_ru) > 0 else "",
                                 "description_zh_cn" : lxml.html.fromstring(description_zh_cn).text_content() if len(description_zh_cn) > 0 else "",
                                 "description_zh_hk" : lxml.html.fromstring(description_zh_hk).text_content() if len(description_zh_hk) > 0 else "",
-                                        "date_created"      : book["fields"]["date_created"],
+                                        "date_created"      : book["fields"]["pub_date"],
                                         "image"             : "http://orthodoxbookshop.asia/media/" + images[book["pk"]],
                                         "author_en"         : book["fields"]["author_en"],
                                         "author_ru"         : book["fields"]["author_ru"],
