@@ -47,7 +47,7 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
             return CGSizeMake(210, 270)
             
         } else {
-            return CGSizeMake(145, 190)            
+            return CGSizeMake(145, 190)
         }
     }
     
