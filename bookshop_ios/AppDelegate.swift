@@ -51,7 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.makeKeyAndVisible()
         
+        Appirater.setAppId("1105252815")
+        Appirater.setDaysUntilPrompt(5)
+        Appirater.setUsesUntilPrompt(5)
+        Appirater.setSignificantEventsUntilPrompt(-1)
+        Appirater.setTimeBeforeReminding(2)
+        Appirater.setDebug(false)
+        Appirater.appLaunched(true)
+        
         return true
+    }
+    
+    func applicationWillEnterForeground(application: UIApplication) {
+        Appirater.appEnteredForeground(true)
     }
 
 }

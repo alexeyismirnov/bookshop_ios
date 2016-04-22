@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Remind me later</key>
+	<string>Напомнить позже</string>
+	<key>No, thanks</key>
+	<string>Нет, спасибо</string>
+	<key>If you enjoy using Orthodox Library, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
+	<string>Если Вам понравилось приложение, пожалуйста, оцените его</string>
+	<key>Rate Orthodox Library</key>
+	<string>Оценить &quot;Библиотеку&quot;</string>
 	<key>Done</key>
 	<string>Выбрать</string>
 	<key>No books in this folder</key>

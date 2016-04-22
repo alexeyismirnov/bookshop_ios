@@ -17,6 +17,7 @@
 		8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */; };
 		8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */; };
 		8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */; };
+		8A3960B31CC9D6C7002F693B /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3960B21CC9D6C6002F693B /* Appirater.m */; };
 		8A402D6B1CC5D4A7007FA8A6 /* launch-hd4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */; };
 		8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */; };
 		8A402D6D1CC5D4A7007FA8A6 /* launch-hd5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */; };
@@ -118,6 +119,9 @@
 		8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ru.plist; sourceTree = "<group>"; };
 		8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_cn.plist; sourceTree = "<group>"; };
 		8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_hk.plist; sourceTree = "<group>"; };
+		8A3960B11CC9D6C6002F693B /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		8A3960B21CC9D6C6002F693B /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		8A3960B51CC9D722002F693B /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
 		8A402D611CC5D4A7007FA8A6 /* launch-hd4.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd4.7.png"; sourceTree = "<group>"; };
 		8A402D621CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5-landscape.png"; sourceTree = "<group>"; };
 		8A402D631CC5D4A7007FA8A6 /* launch-hd5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-hd5.5.png"; sourceTree = "<group>"; };
@@ -321,6 +325,9 @@
 				8A1183EB1CBB942B00AA7C3E /* PopoverViewController.swift */,
 				8AE53C321CAA1C73005BFA1B /* Main.storyboard */,
 				8AE53C351CAA1C73005BFA1B /* Assets.xcassets */,
+				8A3960B21CC9D6C6002F693B /* Appirater.m */,
+				8A3960B11CC9D6C6002F693B /* Appirater.h */,
+				8A3960B51CC9D722002F693B /* AppiraterDelegate.h */,
 				8AE53C3A1CAA1C73005BFA1B /* Info.plist */,
 				8A42A74C1CC7841B00114978 /* InfoPlist.strings */,
 				8AE43D5B1CAB856000B59632 /* bookshop_ios-Bridging-Header.h */,
@@ -584,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3960B31CC9D6C7002F693B /* Appirater.m in Sources */,
 				8AE53C511CAA5FE0005BFA1B /* ViewController.swift in Sources */,
 				8A20DF0B1CBE4F320087751D /* PreviewManager.swift in Sources */,
 				8AE53C531CAA7191005BFA1B /* TableViewController.swift in Sources */,
