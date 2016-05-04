@@ -43,17 +43,21 @@ struct CommonActions  {
     static func downloadAction(url: String, _ viewController : UIViewController) -> Action {
         let ext = NSURL(fileURLWithPath: url).pathExtension!
         
-        if let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first,
-           let filename = NSURL(string: url)!.lastPathComponent,
-           let dest = documentDirectory.URLByAppendingPathComponent(filename).path
-           where fileManager.fileExistsAtPath(dest) {
-
+        let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let filename = NSURL(string: url)!.lastPathComponent!
+        let dest = documentDirectory.URLByAppendingPathComponent(filename).path!
+        
+        if  fileManager.fileExistsAtPath(dest) {
             let title = (ext == "pdf") ? "Read PDF" : "Read EPUB"
             
             return Action(title: title,
                           imageName: "book_\(ext)",
                           color: UIColor.lightBlueColor(),
-                          action: { _  in  PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
+                          action: { _  in
+                            
+                            dispatch_async(dispatch_get_main_queue()) {
+                                PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
+                            }
             })
 
 
@@ -63,7 +67,11 @@ struct CommonActions  {
             return Action(title: title,
                                 imageName: "book_\(ext)",
                                 color: UIColor.lightBlueColor(),
-                                action: { _ in  DownloadManager.startTransfer(url, completionHandler: {})
+                                action: { _ in  DownloadManager.startTransfer(url, completionHandler: {
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
+                                    }
+                                })
             })
 
         }
@@ -136,7 +144,7 @@ struct CatalogueActions : ActionManager {
         prefs.setObject(favorites, forKey: "favorites")
         prefs.synchronize()
 
-        NSNotificationCenter.defaultCenter().postNotificationName(needReloadViewNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(needReloadFavoritesNotification, object: nil)
     }
 }
 
@@ -173,7 +181,7 @@ struct FavoritesActions : ActionManager {
         prefs.setObject(favorites, forKey: "favorites")
         prefs.synchronize()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(needReloadViewNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(needReloadFavoritesNotification, object: nil)
         
     }
 }

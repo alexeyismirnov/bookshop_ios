@@ -33,68 +33,66 @@ struct BookData {
 }
 
 class BooksModel {
-    var books : [BookData]!
+    var books = [BookData]()
     
     required init() {
-        books = []
     }
     
     func load(completion: () -> Void) {
+    }
+    
+    func updateFavorites() {
+        
     }
 }
 
 class FirebaseModel : BooksModel {
     let ref = Firebase(url: "\(Firebase_url)/index")
     let prefs = NSUserDefaults.standardUserDefaults()
-
-    required init() {
-        super.init()
-    }
+    var orig_books = [BookData]()
     
     override func load(completion: () -> Void) {
-        let favorites = self.prefs.arrayForKey("favorites") as! [String]
-
         books = []
 
         ref.queryOrderedByChild("date_created").observeEventType(.Value, withBlock: { snapshot in
             var newItems = [BookData]()
 
             for book in snapshot.children {
-                var item = BookData(snapshot: book as! FDataSnapshot)
-                
-                if favorites.contains(book.key) {
-                    item.favorite = true
-                }
-                
+                let item = BookData(snapshot: book as! FDataSnapshot)
                 newItems.append(item)
             }
             
             self.books = newItems.reverse()
-            
+            self.orig_books = self.books
+            self.updateFavorites()
+
             completion()
         })
+    }
+    
+    override func updateFavorites() {
+        let favorites = prefs.arrayForKey("favorites") as! [String]
+
+        books = orig_books
+        
+        for i in self.books.indices {
+            if favorites.contains(books[i].key) {
+                books[i].favorite = true
+            }
+        }
     }
 }
 
 class CoreDataModel : FirebaseModel {
-    required init() {
-        super.init()
-    }
-
-    override func load(completion: () -> Void) {
-        super.load() { _ in
-            
-            let favorites = self.prefs.arrayForKey("favorites") as! [String]
-
-            self.books = self.books.filter() { book in
-                favorites.contains(book.key)
-            }
-
-            for i in self.books.indices {
-                self.books[i].favorite = false
-            }
-            
-            completion()
+    override func updateFavorites() {
+        let favorites = self.prefs.arrayForKey("favorites") as! [String]
+        
+        books = orig_books.filter() { book in
+            favorites.contains(book.key)
+        }
+        
+        for i in books.indices {
+            books[i].favorite = false
         }
     }
 }

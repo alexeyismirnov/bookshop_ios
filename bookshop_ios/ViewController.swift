@@ -53,11 +53,14 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         createViewController()
         
         reload()
-        modelReload()
+        
+        model.load() {
+            self.currentView.reload()
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(BooksViewController.modelReload),
-                                                         name: needReloadViewNotification,
+                                                         selector: #selector(BooksViewController.reloadFavorites),
+                                                         name: needReloadFavoritesNotification,
                                                          object: nil)
 
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -70,7 +73,7 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
                                                          name: viewTypeChangedNotification,
                                                          object: nil)
     }
-    
+        
     func createButtons() {
         viewListButton = UIBarButtonItem(image: UIImage(named: "view_list"),
                                          style: .Plain,
@@ -132,10 +135,9 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         (currentView as! UIViewController).title = Translate.s("Orthodox Library")
     }
     
-    func modelReload() {
-        model.load() {
-            self.currentView.reload()
-        }
+    func reloadFavorites() {
+        model.updateFavorites()
+        currentView.reload()
     }
 
     func switchViewType() {
@@ -204,4 +206,5 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         popoverController?.delegate = nil
         popoverController = nil
     }
+
 }

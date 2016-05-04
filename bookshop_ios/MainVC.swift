@@ -10,7 +10,7 @@ import UIKit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 let viewTypeChangedNotification = "viewTypeChanged"
-let needReloadViewNotification = "needReloadView"
+let needReloadFavoritesNotification = "needReloadFavorites"
 
 let languages = ["en", "ru", "zh_cn", "zh_hk"]
 
@@ -23,6 +23,11 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainVC.reload), name: optionsSavedNotification, object: nil)
 
         reload()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        PreviewManager.showingPreview = false
     }
 
     func reload() {

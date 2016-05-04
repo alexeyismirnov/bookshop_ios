@@ -11,16 +11,25 @@ import FolioReaderKit
 
 class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
     static let sharedInstance = PreviewManager()
+    static var showingPreview = false
+    
     var viewController : UIViewController!
-    var docPreview : UIDocumentInteractionController!
+    var docPreview : UIDocumentInteractionController?
 
     static func preview(url: NSURL, viewController: UIViewController) {
+        
+        if showingPreview {
+            return
 
+        } else {
+            showingPreview = true
+        }
+        
         if url.pathExtension == "pdf" {
             sharedInstance.viewController = viewController
             sharedInstance.docPreview = UIDocumentInteractionController(URL: url)
-            sharedInstance.docPreview.delegate = sharedInstance
-            sharedInstance.docPreview.presentPreviewAnimated(true)
+            sharedInstance.docPreview!.delegate = sharedInstance
+            sharedInstance.docPreview!.presentPreviewAnimated(false)
             
         } else {
             let config = FolioReaderConfig()
@@ -29,9 +38,8 @@ class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
         }
     }
     
-    
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
         return viewController
-    }
+    }    
 }
 
