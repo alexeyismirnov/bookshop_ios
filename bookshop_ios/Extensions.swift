@@ -199,9 +199,8 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             
-            try? localURL.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
-
             try? data.writeToURL(localURL, options: .DataWritingWithoutOverwriting)
+            try? localURL.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
             
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 self.image = image

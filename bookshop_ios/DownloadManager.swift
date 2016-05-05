@@ -126,9 +126,8 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         let fileData = NSData(contentsOfURL: location)
         
         do {
-            try? dest.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
-            
             try fileData?.writeToURL(dest, options: .DataWritingFileProtectionNone)
+            try dest.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
             
         } catch let error as NSError {
             print(error.localizedDescription)
