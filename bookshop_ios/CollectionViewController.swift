@@ -12,25 +12,25 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     
     var delegate : BooksViewController!
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         if delegate.model.books.count > 0 {
             collectionView.backgroundView = nil
             return 1
             
         } else {
-            let rect = CGRectMake(0, 0, collectionView.bounds.size.width, collectionView.bounds.size.height)
+            let rect = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
             delegate.emptyFolderLabel.frame = rect
             collectionView.backgroundView = delegate.emptyFolderLabel
             return 0
         }
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate.model.books.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BookCell", forIndexPath: indexPath) as! CollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! CollectionViewCell
 
         if indexPath.row >= delegate.model.books.count {
             return cell
@@ -41,26 +41,26 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            return CGSizeMake(210, 270)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return CGSize(width: 210, height: 270)
             
         } else {
-            return CGSizeMake(145, 190)
+            return CGSize(width: 145, height: 190)
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
         return UIEdgeInsetsMake(5, 10, 5, 10);
     }
     
-    @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
-        let loc = gestureRecognizer.locationInView(collectionView)
+    @IBAction func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let loc = gestureRecognizer.location(in: collectionView)
         
-        if let path = collectionView?.indexPathForItemAtPoint(loc),
-               cell = collectionView?.cellForItemAtIndexPath(path) {
+        if let path = collectionView?.indexPathForItem(at: loc),
+               let cell = collectionView?.cellForItem(at: path) {
             delegate.tap(path, cell)
         }
     }
@@ -69,11 +69,11 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
         collectionView?.reloadData()
     }
     
-    func cellForPath(path: String) -> UIView? {
-        guard let index = delegate.model.books.indexOf({ $0.download_url == path || $0.epub_url == path })
+    func cellForPath(_ path: String) -> UIView? {
+        guard let index = delegate.model.books.index(where: { $0.download_url == path || $0.epub_url == path })
             else { return nil }
 
-        return (collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)))
+        return (collectionView?.cellForItem(at: IndexPath(row: index, section: 0)))
     }
     
 }

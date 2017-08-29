@@ -15,7 +15,7 @@ class DetailsViewController : UITableViewController {
     @IBOutlet weak var book_title: RWLabel!
     @IBOutlet weak var book_descr: RWLabel!
     
-    var bookIndex : String!
+    var bookIndex = ""
 
     let detailsSchema = [("author", "Author"),
                          ("translator", "Translator"),
@@ -29,26 +29,27 @@ class DetailsViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ref = Firebase(url: "\(Firebase_url)/details/\(bookIndex)")
+        let ref = Database.database().reference().child("details/\(bookIndex)")
         
-        ref.observeEventType(.Value, withBlock: { snapshot  in
-            let title = snapshot.value["title_\(Translate.language)"] as! String
-            let image = snapshot.value["image"] as! String
-            let description = snapshot.value["description_\(Translate.language)"] as! String
+        ref.observe(.value, with: { snapshot  in
+            let dict = snapshot.value as! [String: String]
+
+            let title = dict["title_\(Translate.language)"]
+            let image = dict["image"]
+            let description = dict["description_\(Translate.language)"]
             
             for (code,_) in self.detailsSchema {
                 if code == "author" {
-                    self.details[code] = snapshot.value["author_\(Translate.language)"] as! String
+                    self.details[code] = dict["author_\(Translate.language)"]
                     
                 } else {
-                    self.details[code] = snapshot.value[code] as! String
-                    
+                    self.details[code] = dict[code]
                 }
             }
             
-            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+            let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
                 
-            self.icon.downloadedFrom(link: image, contentMode: .ScaleAspectFit, cell: cell!)
+            self.icon.downloadedFrom(link: image!, contentMode: .scaleAspectFit, cell: cell!)
             self.book_title.text = title
             self.book_descr.text = description
             
@@ -56,16 +57,16 @@ class DetailsViewController : UITableViewController {
         })
     }
     
-    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return size.height+1.0
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 && details.count == 0 {
             return 0
         } else {
@@ -73,19 +74,19 @@ class DetailsViewController : UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == 1 && details[detailsSchema[indexPath.row].0]!.characters.count == 0) {
             return 0
         }
 
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         let height = calculateHeightForCell(cell)
 
         return height
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
 
         if indexPath.section != 1 || details.count == 0 {
             return cell
@@ -96,33 +97,33 @@ class DetailsViewController : UITableViewController {
         
         if (detailsSchema[indexPath.row].0 == "date_created") {
             
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             
-            var date = dateFormatter.dateFromString(value!)
+            var date = dateFormatter.date(from: value!)
             
             if date == nil {
                 dateFormatter.dateFormat = "yyyy-MM"
-                date = dateFormatter.dateFromString(value!)
+                date = dateFormatter.date(from: value!)
             }
         
-            let formatter = NSDateFormatter()
-            formatter.dateStyle = .ShortStyle
-            formatter.timeStyle = .NoStyle
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.timeStyle = .none
             
             switch Translate.language {
             case "zh_cn":
-                formatter.locale = NSLocale(localeIdentifier: "zh_Hans")
+                formatter.locale = Locale(identifier: "zh_Hans")
 
             case "zh_hk":
-                formatter.locale = NSLocale(localeIdentifier: "zh_Hant")
+                formatter.locale = Locale(identifier: "zh_Hant")
 
             default:
-                formatter.locale = NSLocale(localeIdentifier: Translate.language)
+                formatter.locale = Locale(identifier: Translate.language)
                 
             }
             
-            cell.detailTextLabel!.text = formatter.stringFromDate(date!)
+            cell.detailTextLabel!.text = formatter.string(from: date!)
             
         } else {
             cell.detailTextLabel!.text = value
@@ -131,7 +132,7 @@ class DetailsViewController : UITableViewController {
         return cell
     }
 
-    @IBAction func done(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 }

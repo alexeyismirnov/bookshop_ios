@@ -12,7 +12,7 @@ import WYPopoverController
 @objc protocol MVCInterface : class {
     var delegate : BooksViewController! { get set }
     @objc func reload()
-    @objc func cellForPath(path : String) -> UIView?
+    @objc func cellForPath(_ path : String) -> UIView?
 }
 
 protocol CellInterface : class {
@@ -21,15 +21,15 @@ protocol CellInterface : class {
 }
 
 enum ViewType : Int {
-    case ListView=0, GridView
+    case listView=0, gridView
 }
 
 enum DataSource : Int {
-    case Firebase=0, CoreData
+    case firebase=0, coreData
 }
 
 class BooksViewController: UIViewController, WYPopoverControllerDelegate {
-    let prefs = NSUserDefaults.standardUserDefaults()
+    let prefs = UserDefaults.standard
 
     var dataSourceId: NSNumber!
     var viewType : ViewType!
@@ -58,68 +58,68 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
             self.currentView.reload()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(BooksViewController.reloadFavorites),
-                                                         name: needReloadFavoritesNotification,
+                                                         name: NSNotification.Name(rawValue: needReloadFavoritesNotification),
                                                          object: nil)
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(BooksViewController.reload),
-                                                         name: optionsSavedNotification,
+                                                         name: NSNotification.Name(rawValue: optionsSavedNotification),
                                                          object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(BooksViewController.createViewController),
-                                                         name: viewTypeChangedNotification,
+                                                         name: NSNotification.Name(rawValue: viewTypeChangedNotification),
                                                          object: nil)
     }
         
     func createButtons() {
         viewListButton = UIBarButtonItem(image: UIImage(named: "view_list"),
-                                         style: .Plain,
+                                         style: .plain,
                                          target: self,
                                          action: #selector(BooksViewController.switchViewType))
         
         viewGridButton = UIBarButtonItem(image: UIImage(named: "view_grid"),
-                                         style: .Plain,
+                                         style: .plain,
                                          target: self,
                                          action: #selector(BooksViewController.switchViewType))
         
         optionsButton = UIBarButtonItem(image: UIImage(named: "options"),
-                                        style: .Plain,
+                                        style: .plain,
                                         target: self,
                                         action: #selector(BooksViewController.showOptions))
 
         emptyFolderLabel = UILabel()
-        emptyFolderLabel.textColor = UIColor.blackColor()
+        emptyFolderLabel.textColor = UIColor.black
         emptyFolderLabel.numberOfLines = 0
-        emptyFolderLabel.textAlignment = .Center
+        emptyFolderLabel.textAlignment = .center
         emptyFolderLabel.font = UIFont(name: "Palatino-Italic", size: 20)
     }
     
     func createModel() {
-        let source = DataSource(rawValue: dataSourceId.integerValue)!
+        let source = DataSource(rawValue: dataSourceId.intValue)!
         
         switch (source) {
-        case .Firebase:
+        case .firebase:
             model = FirebaseModel()
             
-        case .CoreData:
+        case .coreData:
             model = CoreDataModel()
         }
     }
     
     func createViewController() {
-        viewType = (prefs.objectForKey("viewType") as! String == "list") ? .ListView : .GridView
-        let controllerId = (viewType == .ListView) ? "BooksTableView" : "BooksCollectionView"
+        viewType = (prefs.object(forKey: "viewType") as! String == "list") ? .listView : .gridView
+        let controllerId = (viewType == .listView) ? "BooksTableView" : "BooksCollectionView"
 
-        navigationController?.popViewControllerAnimated(false)
+        navigationController?.popViewController(animated: false)
         
-        let vc = storyboard!.instantiateViewControllerWithIdentifier(controllerId)
+        let vc = storyboard!.instantiateViewController(withIdentifier: controllerId)
         (vc as! MVCInterface).delegate = self
         currentView = vc as! MVCInterface
         
-        vc.navigationItem.leftBarButtonItem = (viewType == .ListView) ? viewGridButton : viewListButton
+        vc.navigationItem.leftBarButtonItem = (viewType == .listView) ? viewGridButton : viewListButton
         vc.navigationItem.rightBarButtonItem = optionsButton
         vc.title = Translate.s("Orthodox Library")
         
@@ -129,8 +129,8 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     func reload() {
         currentView.reload()
         
-        let source = DataSource(rawValue: dataSourceId.integerValue)!
-        emptyFolderLabel.text = (source == .Firebase) ? Translate.s("Loading...") : Translate.s("No books in this folder")
+        let source = DataSource(rawValue: dataSourceId.intValue)!
+        emptyFolderLabel.text = (source == .firebase) ? Translate.s("Loading...") : Translate.s("No books in this folder")
 
         (currentView as! UIViewController).title = Translate.s("Orthodox Library")
     }
@@ -141,18 +141,18 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
     }
 
     func switchViewType() {
-        prefs.setObject((viewType == .ListView) ? "grid" : "list", forKey: "viewType")
+        prefs.set((viewType == .listView) ? "grid" : "list", forKey: "viewType")
         prefs.synchronize()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(viewTypeChangedNotification, object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: viewTypeChangedNotification), object: self)
     }
     
     func showOptions() {
-        let nav = storyboard!.instantiateViewControllerWithIdentifier("OptionsNav") as! UINavigationController
-        navigationController?.presentViewController(nav, animated: true, completion: {})
+        let nav = storyboard!.instantiateViewController(withIdentifier: "OptionsNav") as! UINavigationController
+        navigationController?.present(nav, animated: true, completion: {})
     }
     
-    func tap(index: NSIndexPath, _ cell : UIView) {
+    func tap(_ index: IndexPath, _ cell : UIView) {
         
         var actions : ActionManager!
         
@@ -165,15 +165,15 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
             actions = DownloadActions(path: fti.path)
             
         } else {
-            let source = DataSource(rawValue: dataSourceId.integerValue)!
-            actions = (source == .Firebase) ? CatalogueActions() : FavoritesActions()
+            let source = DataSource(rawValue: dataSourceId.intValue)!
+            actions = (source == .firebase) ? CatalogueActions() : FavoritesActions()
             actions.viewController = self
         }
         
         actions.book = model.books[index.row]
         
         let height = (actions.actions.count < 3) ? 3 : actions.actions.count
-        let popover = storyboard!.instantiateViewControllerWithIdentifier("Popover\(height)") as! PopoverViewController
+        let popover = storyboard!.instantiateViewController(withIdentifier: "Popover\(height)") as! PopoverViewController
         
         popover.actions = actions
         popover.delegate = self
@@ -181,21 +181,21 @@ class BooksViewController: UIViewController, WYPopoverControllerDelegate {
         popoverController = WYPopoverController(contentViewController: popover)
         popoverController?.delegate = self
         
-        popoverController?.presentPopoverFromRect(cell.bounds,
-                                                  inView: cell,
-                                                  permittedArrowDirections: WYPopoverArrowDirection.Any,
+        popoverController?.presentPopover(from: cell.bounds,
+                                          in: cell,
+                                                  permittedArrowDirections: WYPopoverArrowDirection.any,
                                                   animated: true,
-                                                  options: WYPopoverAnimationOptions.FadeWithScale)
+                                                  options: WYPopoverAnimationOptions.fadeWithScale)
         
         
     }
     
-    func cellForPath(path : String) -> CellInterface? {
+    func cellForPath(_ path : String) -> CellInterface? {
         return currentView.cellForPath(path) as? CellInterface
     }
     
-    func dismissPopover() {
-        popoverController?.dismissPopoverAnimated(false, completion: {})
+    func dismissPopover() {        
+        popoverController?.dismissPopover(animated: false)
     }
     
     func popoverControllerShouldDismissPopover(_ : WYPopoverController) -> Bool {

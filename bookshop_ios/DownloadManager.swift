@@ -11,33 +11,33 @@ import Reachability
 
 struct FileTransferInfo {
     var path : String!
-    var task : NSURLSessionTask!
+    var task : URLSessionTask!
     var progress : Float
     var completionHandler : () -> Void
 }
 
-class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionDataDelegate {
+class DownloadManager : NSObject, URLSessionDownloadDelegate, URLSessionDataDelegate {
     
     static let sharedInstance = DownloadManager()
     static var allViews = [BooksViewController]()
     static var currentTransfers = [Int : FileTransferInfo]()
     
-    var downloadSessionConfig : NSURLSessionConfiguration!
-    var downloadSession : NSURLSession!
+    var downloadSessionConfig : URLSessionConfiguration!
+    var downloadSession : Foundation.URLSession!
     
     override init() {
         super.init()
-        downloadSessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-        downloadSession = NSURLSession(configuration: downloadSessionConfig, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        downloadSessionConfig = URLSessionConfiguration.default
+        downloadSession = Foundation.URLSession(configuration: downloadSessionConfig, delegate: self, delegateQueue: OperationQueue.main)
     }
     
-    func createTask(path: String) -> NSURLSessionTask {
+    func createTask(_ path: String) -> URLSessionTask {
 
-        return downloadSession.dataTaskWithURL(NSURL(string: path)!)
+        return downloadSession.dataTask(with: URL(string: path)!)
     }
     
-    static func startTransfer(path: String, completionHandler: () -> Void) {
-        guard let reachability =  Reachability.reachabilityForInternetConnection() else { return }
+    static func startTransfer(_ path: String, completionHandler: @escaping () -> Void) {
+        guard let reachability =  Reachability.forInternetConnection() else { return }
         
         if reachability.currentReachabilityStatus() == .NotReachable {
             Environment.showNotification("Error", subtitle: Translate.s("Cannot connect to Internet"), isError: true)
@@ -59,7 +59,7 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         
         for vc in DownloadManager.allViews {
             if let cell = vc.cellForPath(path) {
-                cell.progressbar.hidden = false
+                cell.progressbar.isHidden = false
                 cell.progressbar.progress = 0
             }
         }
@@ -67,33 +67,33 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         task.resume()
     }
     
-    static func fileTransferInfo(path: String) -> FileTransferInfo? {
+    static func fileTransferInfo(_ path: String) -> FileTransferInfo? {
         let transfer = currentTransfers.filter { $0.1.path == path }
         return transfer.count > 0 ? transfer[0].1 : nil
     }
     
-    static func cancelTransfer(path: String) {
+    static func cancelTransfer(_ path: String) {
         guard let fti = fileTransferInfo(path) else { return }
         
         fti.task.cancel()
-        currentTransfers.removeValueForKey(fti.task.taskIdentifier)
+        currentTransfers.removeValue(forKey: fti.task.taskIdentifier)
         
         for vc in DownloadManager.allViews {
             if let cell = vc.cellForPath(path) {
-                cell.progressbar.hidden = true
+                cell.progressbar.isHidden = true
             }
         }
     }
     
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void) {
-        completionHandler(.BecomeDownload)
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        completionHandler(.becomeDownload)
     }
     
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didBecomeDownloadTask downloadTask: NSURLSessionDownloadTask) {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask) {
         downloadTask.resume()
     }
  
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
 
         if totalBytesExpectedToWrite == NSURLSessionTransferSizeUnknown {
             print("Unknown transfer size")
@@ -113,21 +113,21 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
  
     }
  
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
 
         guard let fti = DownloadManager.currentTransfers[downloadTask.taskIdentifier],
-              let url = NSURL(string: fti.path),
-              let filename = url.lastPathComponent,
-              let documentDirectory:NSURL = urls.first else { return }
+              let url = URL(string: fti.path),
+              let documentDirectory:URL = urls.first else { return }
 
-        let dest = documentDirectory.URLByAppendingPathComponent(filename)
-        let fileData = NSData(contentsOfURL: location)
+        let filename = url.lastPathComponent
+        let dest = documentDirectory.appendingPathComponent(filename)
+        let fileData = try? Data(contentsOf: location)
         
         do {
-            try fileData?.writeToURL(dest, options: .DataWritingFileProtectionNone)
-            try dest.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
+            try fileData?.write(to: dest, options: .noFileProtection)
+            try (dest as NSURL).setResourceValue(true, forKey: URLResourceKey.isExcludedFromBackupKey)
             
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -135,17 +135,17 @@ class DownloadManager : NSObject, NSURLSessionDownloadDelegate, NSURLSessionData
         
         for vc in DownloadManager.allViews {
             if let cell = vc.cellForPath(fti.path) {
-                cell.progressbar.hidden = true
+                cell.progressbar.isHidden = true
             }
         }
 
-        DownloadManager.currentTransfers.removeValueForKey(fti.task.taskIdentifier)
+        DownloadManager.currentTransfers.removeValue(forKey: fti.task.taskIdentifier)
         
         Environment.showNotification("Donwload complete", subtitle: Translate.s("Download complete"), isError: false)
         fti.completionHandler()
     }
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let e = error {
             Environment.showNotification("Error", subtitle: Translate.s(e.localizedDescription), isError: true)
         }

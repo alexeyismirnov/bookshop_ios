@@ -10,7 +10,7 @@ import UIKit
 
 class OptionsViewController : UITableViewController {
 
-    let prefs = NSUserDefaults.standardUserDefaults()
+    let prefs = UserDefaults.standard
     var firstRun = false
 
     @IBOutlet weak var button: UIButton!
@@ -18,20 +18,20 @@ class OptionsViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let index = languages.indexOf(prefs.stringForKey("language")!)!
+        let index = languages.index(of: prefs.string(forKey: "language")!)!
         
-        let cell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: index, inSection: 0)) as UITableViewCell
-        cell.accessoryType = .Checkmark
+        let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: index, section: 0)) as UITableViewCell
+        cell.accessoryType = .checkmark
         
-        button.setTitle(Translate.s("Done"), forState: .Normal)
-        button.layer.borderColor = UIColor.lightBlueColor().CGColor
+        button.setTitle(Translate.s("Done"), for: UIControlState())
+        button.layer.borderColor = UIColor.lightBlueColor().cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.lightBlueColor(), forState: .Normal)
+        button.setTitleColor(UIColor.lightBlueColor(), for: UIControlState())
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section != 0 {
             return;
         }
@@ -39,24 +39,24 @@ class OptionsViewController : UITableViewController {
         var cell: UITableViewCell
 
         for row in 0...3 {
-            cell = self.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: row, inSection: 0)) as UITableViewCell
-            cell.accessoryType = .None
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: row, section: 0)) as UITableViewCell
+            cell.accessoryType = .none
         }
         
-        cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as UITableViewCell
-        cell.accessoryType = .Checkmark
+        cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
+        cell.accessoryType = .checkmark
         
         let row = indexPath.row
 
         Translate.language = languages[row]
-        prefs.setObject(languages[row], forKey: "language")
+        prefs.set(languages[row], forKey: "language")
         prefs.synchronize()
         
-        button.setTitle(Translate.s("Done"), forState: .Normal)
+        button.setTitle(Translate.s("Done"), for: UIControlState())
         tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return Translate.s("Language")
             
@@ -67,15 +67,15 @@ class OptionsViewController : UITableViewController {
         return nil
     }
     
-    @IBAction func done(sender: AnyObject) {
+    @IBAction func done(_ sender: AnyObject) {
         if firstRun {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewControllerWithIdentifier("MainView")
-            UIApplication.sharedApplication().keyWindow?.rootViewController = controller;
+            let controller = storyboard.instantiateViewController(withIdentifier: "MainView")
+            UIApplication.shared.keyWindow?.rootViewController = controller;
 
         } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(optionsSavedNotification, object: nil)
-            dismissViewControllerAnimated(true, completion: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
+            dismiss(animated: true, completion: nil)
             
         }
     }

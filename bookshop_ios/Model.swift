@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseDatabase
 
 let Firebase_url = "https://torrid-inferno-5814.firebaseio.com"
 
@@ -19,18 +21,22 @@ struct BookData {
     var epub_url: String?
     var favorite : Bool = false
     
-    init(snapshot: FDataSnapshot) {
+    init(snapshot:DataSnapshot) {
         key = snapshot.key
-        
+        //let value = snapshot.value
+        //print(value)
+        let dict = snapshot.value as! [String: String]
+
         for lang in languages {
-            title[lang] = snapshot.value["title_\(lang)"] as! String
+            title[lang] = dict["title_\(lang)"]
         }
         
-        image = snapshot.value["image"] as! String
-        download_url = snapshot.value["download_url"] as! String
-        epub_url = snapshot.value["epub_url"] as? String
+        image = dict["image"]
+        download_url = dict["download_url"]
+        epub_url = dict["epub_url"]
     }
-}
+    
+    }
 
 class BooksModel {
     var books = [BookData]()
@@ -38,7 +44,7 @@ class BooksModel {
     required init() {
     }
     
-    func load(completion: () -> Void) {
+    func load(_ completion: @escaping () -> Void) {
     }
     
     func updateFavorites() {
@@ -47,22 +53,22 @@ class BooksModel {
 }
 
 class FirebaseModel : BooksModel {
-    let ref = Firebase(url: "\(Firebase_url)/index")
-    let prefs = NSUserDefaults.standardUserDefaults()
+    let ref = Database.database().reference().child("index")
+    let prefs = UserDefaults.standard
     var orig_books = [BookData]()
     
-    override func load(completion: () -> Void) {
+    override func load(_ completion: @escaping () -> Void) {
         books = []
 
-        ref.queryOrderedByChild("date_created").observeEventType(.Value, withBlock: { snapshot in
+        ref.queryOrdered(byChild: "date_created").observe(.value, with: { snapshot in
             var newItems = [BookData]()
 
             for book in snapshot.children {
-                let item = BookData(snapshot: book as! FDataSnapshot)
+                let item = BookData(snapshot: book as! DataSnapshot)
                 newItems.append(item)
             }
             
-            self.books = newItems.reverse()
+            self.books = newItems.reversed()
             self.orig_books = self.books
             self.updateFavorites()
 
@@ -71,7 +77,7 @@ class FirebaseModel : BooksModel {
     }
     
     override func updateFavorites() {
-        let favorites = prefs.arrayForKey("favorites") as! [String]
+        let favorites = prefs.array(forKey: "favorites") as! [String]
 
         books = orig_books
         
@@ -85,7 +91,7 @@ class FirebaseModel : BooksModel {
 
 class CoreDataModel : FirebaseModel {
     override func updateFavorites() {
-        let favorites = self.prefs.arrayForKey("favorites") as! [String]
+        let favorites = self.prefs.array(forKey: "favorites") as! [String]
         
         books = orig_books.filter() { book in
             favorites.contains(book.key)

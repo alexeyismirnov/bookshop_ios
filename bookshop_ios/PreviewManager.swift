@@ -16,7 +16,7 @@ class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
     var viewController : UIViewController!
     var docPreview : UIDocumentInteractionController?
 
-    static func preview(url: NSURL, viewController: UIViewController) {
+    static func preview(_ url: URL, viewController: UIViewController) {
         
         if showingPreview {
             return
@@ -27,18 +27,20 @@ class PreviewManager : NSObject, UIDocumentInteractionControllerDelegate {
         
         if url.pathExtension == "pdf" {
             sharedInstance.viewController = viewController
-            sharedInstance.docPreview = UIDocumentInteractionController(URL: url)
+            sharedInstance.docPreview = UIDocumentInteractionController(url: url)
             sharedInstance.docPreview!.delegate = sharedInstance
-            sharedInstance.docPreview!.presentPreviewAnimated(false)
+            sharedInstance.docPreview!.presentPreview(animated: false)
             
         } else {
             let config = FolioReaderConfig()
-            FolioReader.presentReader(parentViewController: viewController, withEpubPath: url.path!, andConfig: config)
+            let folioReader = FolioReader()
+
+            folioReader.presentReader(parentViewController: viewController, withEpubPath: url.path, andConfig: config)
 
         }
     }
     
-    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
         return viewController
     }    
 }

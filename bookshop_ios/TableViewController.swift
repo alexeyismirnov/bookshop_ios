@@ -12,60 +12,60 @@ class TableViewController : UITableViewController, MVCInterface {
     
     var delegate : BooksViewController!
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         if delegate.model.books.count > 0 {
             tableView.backgroundView = nil
-            tableView.separatorStyle = .SingleLine
+            tableView.separatorStyle = .singleLine
             return 1
             
         } else {
-            let rect = CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)
+            let rect = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
             delegate.emptyFolderLabel.frame = rect
             tableView.backgroundView = delegate.emptyFolderLabel
-            tableView.separatorStyle = .None
+            tableView.separatorStyle = .none
             return 0
         }
     }
  
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate.model.books.count
     }
     
     func getCell() -> TableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("BookCell") as? TableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell") as? TableViewCell {
             return cell
             
         } else {
-            return UITableViewCell(style:.Default, reuseIdentifier: "BookCell") as! TableViewCell
+            return UITableViewCell(style:.default, reuseIdentifier: "BookCell") as! TableViewCell
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = getCell()
         cell.book = delegate.model.books[indexPath.row]
 
         return cell
     }
     
-    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return size.height+1.0
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {        
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
     }
 
-    @IBAction func tap(gestureRecognizer: UITapGestureRecognizer) {
-        let loc = gestureRecognizer.locationInView(tableView)
+    @IBAction func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let loc = gestureRecognizer.location(in: tableView)
         
-        if let path = tableView?.indexPathForRowAtPoint(loc),
-               cell = tableView.cellForRowAtIndexPath(path) {
+        if let path = tableView?.indexPathForRow(at: loc),
+               let cell = tableView.cellForRow(at: path) {
             
             delegate.tap(path, cell)
         }
@@ -76,9 +76,9 @@ class TableViewController : UITableViewController, MVCInterface {
         tableView.reloadData()
     }
     
-    func cellForPath(path: String) -> UIView? {
-        guard let index = delegate.model.books.indexOf({ $0.download_url == path || $0.epub_url == path }) else { return nil }
-        return tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+    func cellForPath(_ path: String) -> UIView? {
+        guard let index = delegate.model.books.index(where: { $0.download_url == path || $0.epub_url == path }) else { return nil }
+        return tableView.cellForRow(at: IndexPath(row: index, section: 0))
     }
 }
 

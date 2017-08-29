@@ -17,36 +17,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override init() {
         super.init()
-        Firebase.defaultConfig().persistenceEnabled = true
         
-         NSUserDefaults.standardUserDefaults().registerDefaults([
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+                
+         UserDefaults.standard.register(defaults: [
             "kNightMode": false,
             "language": "en",
             "firstrun": true,
-            "viewType": (UIDevice.currentDevice().userInterfaceIdiom == .Pad) ? "grid" : "list",
+            "viewType": (UIDevice.current.userInterfaceIdiom == .pad) ? "grid" : "list",
             "favorites": []
         ])
     }
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let firstRun =  (prefs.objectForKey("firstrun") as! Bool)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let prefs = UserDefaults.standard
+        let firstRun =  (prefs.object(forKey: "firstrun") as! Bool)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         Translate.files = ["trans"]
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         
         if firstRun {
-            prefs.setObject(false, forKey: "firstrun")
+            prefs.set(false, forKey: "firstrun")
             prefs.synchronize()
 
-            let nav = storyboard.instantiateViewControllerWithIdentifier("OptionsNav") as! UINavigationController
+            let nav = storyboard.instantiateViewController(withIdentifier: "OptionsNav") as! UINavigationController
             (nav.topViewController as! OptionsViewController).firstRun = true
             window?.rootViewController = nav
             
         } else {
-            window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainView")
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainView")
             
         }
         window?.makeKeyAndVisible()
@@ -62,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         Appirater.appEnteredForeground(true)
     }
 

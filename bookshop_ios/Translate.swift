@@ -10,9 +10,9 @@ import UIKit
 
 @objc class Translate: NSObject {    
 
-    private static var dict = [String:String]()
+    fileprivate static var dict = [String:String]()
     static var defaultLanguage = "en"
-    static var locale  = NSLocale(localeIdentifier: "en")
+    static var locale  = Locale(identifier: "en")
 
     static var files = [String]() {
         didSet {
@@ -20,7 +20,7 @@ import UIKit
         }
     }
     
-    static var language = NSUserDefaults.standardUserDefaults().stringForKey("language")!  {
+    static var language = UserDefaults.standard.string(forKey: "language")!  {
         didSet {
             reloadFiles()
         }
@@ -28,7 +28,7 @@ import UIKit
     
     static func reloadFiles() {
         // FIXME
-        locale = NSLocale(localeIdentifier: "en")
+        locale = Locale(identifier: "en")
         
         if language == defaultLanguage {
             return
@@ -37,14 +37,14 @@ import UIKit
         dict = [:]
         
         for file in files {
-            let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
+            let bundle = Bundle.main.path(forResource: "\(file)_\(language)", ofType: "plist")
             let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
             dict += newDict
         }
         
     }
     
-    static func s(str : String) -> String {
+    static func s(_ str : String) -> String {
         if language == defaultLanguage {
             return str
         }

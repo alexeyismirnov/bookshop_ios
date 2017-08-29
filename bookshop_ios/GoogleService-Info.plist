@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>185284179107-dscspie64s5n707r5g31nuseuvsetmpi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.185284179107-dscspie64s5n707r5g31nuseuvsetmpi</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>185284179107-mjkdf5v3t06dcf7btlsp8nmpg68ja03q.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBQKepSvyknxi9tsPb1YzIKGz1bAGMY3s4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>185284179107</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rlc.bookshop-ios</string>
+	<key>PROJECT_ID</key>
+	<string>torrid-inferno-5814</string>
+	<key>STORAGE_BUCKET</key>
+	<string>torrid-inferno-5814.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:185284179107:ios:61ef807191a1a573</string>
+	<key>DATABASE_URL</key>
+	<string>https://torrid-inferno-5814.firebaseio.com</string>
+</dict>
+</plist>

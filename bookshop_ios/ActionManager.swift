@@ -14,18 +14,18 @@ struct Action {
     let color : UIColor
     let action : (BookData) -> Void
     
-    init(title: String, image: UIImage, color: UIColor, action: (BookData) -> Void) {
+    init(title: String, image: UIImage, color: UIColor, action: @escaping (BookData) -> Void) {
         self.title = title
         self.image = image
         self.color = color
         self.action = action
     }
     
-    init(title: String, imageName: String, color: UIColor, action: (BookData) -> Void) {
+    init(title: String, imageName: String, color: UIColor, action: @escaping (BookData) -> Void) {
         self.init(title: title, image: UIImage(named: imageName)!, color: color, action: action)
     }
     
-    func execute(book : BookData) {
+    func execute(_ book : BookData) {
         action(book)
     }
 }
@@ -38,16 +38,16 @@ protocol ActionManager  {
 
 struct CommonActions  {
     
-    static let fileManager = NSFileManager.defaultManager()
+    static let fileManager = FileManager.default
 
-    static func downloadAction(url: String, _ viewController : UIViewController) -> Action {
-        let ext = NSURL(fileURLWithPath: url).pathExtension!
+    static func downloadAction(_ url: String, _ viewController : UIViewController) -> Action {
+        let ext = URL(fileURLWithPath: url).pathExtension
         
-        let documentDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        let filename = NSURL(string: url)!.lastPathComponent!
-        let dest = documentDirectory.URLByAppendingPathComponent(filename).path!
+        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let filename = URL(string: url)!.lastPathComponent
+        let dest = documentDirectory.appendingPathComponent(filename).path
         
-        if  fileManager.fileExistsAtPath(dest) {
+        if  fileManager.fileExists(atPath: dest) {
             let title = (ext == "pdf") ? "Read PDF" : "Read EPUB"
             
             return Action(title: title,
@@ -55,8 +55,8 @@ struct CommonActions  {
                           color: UIColor.lightBlueColor(),
                           action: { _  in
                             
-                            dispatch_async(dispatch_get_main_queue()) {
-                                PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
+                            DispatchQueue.main.async {
+                                PreviewManager.preview(URL(fileURLWithPath: dest), viewController: viewController)
                             }
             })
 
@@ -68,8 +68,8 @@ struct CommonActions  {
                                 imageName: "book_\(ext)",
                                 color: UIColor.lightBlueColor(),
                                 action: { _ in  DownloadManager.startTransfer(url, completionHandler: {
-                                    dispatch_async(dispatch_get_main_queue()) {
-                                        PreviewManager.preview(NSURL(fileURLWithPath: dest), viewController: viewController)
+                                    DispatchQueue.main.async {
+                                        PreviewManager.preview(URL(fileURLWithPath: dest), viewController: viewController)
                                     }
                                 })
             })
@@ -77,18 +77,18 @@ struct CommonActions  {
         }
     }
     
-    static func detailsAction(viewController : UIViewController) -> Action {
+    static func detailsAction(_ viewController : UIViewController) -> Action {
         return Action(title: "Details",
             imageName: "info",
             color: UIColor.lightBlueColor(),
             action: { book in
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let nav = storyboard.instantiateViewControllerWithIdentifier("BookDetailsNav") as! UINavigationController
+                let nav = storyboard.instantiateViewController(withIdentifier: "BookDetailsNav") as! UINavigationController
                 
                 let vc = nav.topViewController as! DetailsViewController
                 vc.bookIndex = book.key
                 
-                viewController.navigationController?.presentViewController(nav, animated: true, completion: {})
+                viewController.navigationController?.present(nav, animated: true, completion: {})
         })
 
     }
@@ -104,7 +104,7 @@ struct DownloadActions : ActionManager {
     init(path : String) {
         actions.append(Action(title: Translate.s("Cancel"),
             imageName: "stop",
-            color: UIColor.redColor(),
+            color: UIColor.red,
             action: { _ in DownloadManager.cancelTransfer(path)
         }))
     }
@@ -118,7 +118,7 @@ struct CatalogueActions : ActionManager {
         didSet {
             actions = []
             
-            if let url = book.epub_url where url.characters.count > 0 {
+            if let url = book.epub_url, url.characters.count > 0 {
                 actions.append(CommonActions.downloadAction(url, viewController))
             }
 
@@ -133,18 +133,18 @@ struct CatalogueActions : ActionManager {
         }
     }
     
-    func addToFavorites(book: BookData) {
-        let prefs = NSUserDefaults.standardUserDefaults()
-        var favorites = prefs.arrayForKey("favorites") as! [String]
+    func addToFavorites(_ book: BookData) {
+        let prefs = UserDefaults.standard
+        var favorites = prefs.array(forKey: "favorites") as! [String]
 
         if !favorites.contains(book.key) {
             favorites.append(book.key)
         }
         
-        prefs.setObject(favorites, forKey: "favorites")
+        prefs.set(favorites, forKey: "favorites")
         prefs.synchronize()
 
-        NSNotificationCenter.defaultCenter().postNotificationName(needReloadFavoritesNotification, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: needReloadFavoritesNotification), object: nil)
     }
 }
 
@@ -156,7 +156,7 @@ struct FavoritesActions : ActionManager {
         didSet {
             actions = []
             
-            if let url = book.epub_url where url.characters.count > 0 {
+            if let url = book.epub_url, url.characters.count > 0 {
                 actions.append(CommonActions.downloadAction(url, viewController))
             }
             
@@ -165,23 +165,23 @@ struct FavoritesActions : ActionManager {
             
             actions.append(Action(title: "Delete",
                 imageName: "trash",
-                color: UIColor.redColor(),
+                color: UIColor.red,
                 action: removeFromFavorites))
         }
     }
     
-    func removeFromFavorites(book: BookData) {
-        let prefs = NSUserDefaults.standardUserDefaults()
-        var favorites = prefs.arrayForKey("favorites") as! [String]
+    func removeFromFavorites(_ book: BookData) {
+        let prefs = UserDefaults.standard
+        var favorites = prefs.array(forKey: "favorites") as! [String]
         
-        if let index = favorites.indexOf(book.key) {
-            favorites.removeAtIndex(index)
+        if let index = favorites.index(of: book.key) {
+            favorites.remove(at: index)
         }
         
-        prefs.setObject(favorites, forKey: "favorites")
+        prefs.set(favorites, forKey: "favorites")
         prefs.synchronize()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(needReloadFavoritesNotification, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: needReloadFavoritesNotification), object: nil)
         
     }
 }

@@ -10,9 +10,9 @@ import UIKit
 import AJNotificationView
 
 enum UIUserInterfaceIdiom : Int {
-    case Unspecified
-    case Phone // iPhone and iPod touch style UI
-    case Pad // iPad style UI
+    case unspecified
+    case phone // iPhone and iPod touch style UI
+    case pad // iPad style UI
 }
 
 func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> NSMutableAttributedString? {
@@ -20,7 +20,7 @@ func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> N
     if let rightArg = arg2 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(rightArg)
+            result.append(rightArg)
             return result
             
         } else {
@@ -38,7 +38,7 @@ func + (arg1: NSMutableAttributedString?, arg2: String?) -> NSMutableAttributedS
     if let rightArg = arg2 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg))
+            result.append(NSMutableAttributedString(string: rightArg))
             return result
             
         } else {
@@ -55,7 +55,7 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     if let rightArg = arg2.0 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
+            result.append(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
             return result
             
         } else {
@@ -67,7 +67,7 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     }
 }
 
-func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
+func += <K,V> (left: inout Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
     for (k, v) in right {
         if let leftValue = left[k] {
             left.updateValue(v + leftValue, forKey: k)
@@ -77,7 +77,7 @@ func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
     }
 }
 
-func +=<K, V> (inout left: [K:V], right: [K:V]) {
+func +=<K, V> (left: inout [K:V], right: [K:V]) {
     for (k, v) in right { left[k] = v }
 }
 
@@ -89,11 +89,11 @@ extension UIColor {
         
         // Establishing the rgb color
         var rgb: UInt32 = 0
-        let s: NSScanner = NSScanner(string: hex)
+        let s: Scanner = Scanner(string: hex)
         // Setting the scan location to ignore the leading `#`
         s.scanLocation = 1
         // Scanning the int into the rgb colors
-        s.scanHexInt(&rgb)
+        s.scanHexInt32(&rgb)
         
         // Creating the UIColor from hex int
         self.init(
@@ -111,98 +111,98 @@ extension UIColor {
 }
 
 extension UIImage {
-    func maskWithColor(color: UIColor) -> UIImage {
+    func maskWithColor(_ color: UIColor) -> UIImage {
         
-        let maskImage = self.CGImage
+        let maskImage = self.cgImage
         let width = self.size.width
         let height = self.size.height
-        let bounds = CGRectMake(0, 0, width, height)
+        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let bitmapContext = CGBitmapContextCreate(nil, Int(width), Int(height), 8, 0, colorSpace, bitmapInfo.rawValue)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let bitmapContext = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
         
-        CGContextClipToMask(bitmapContext, bounds, maskImage)
-        CGContextSetFillColorWithColor(bitmapContext, color.CGColor)
-        CGContextFillRect(bitmapContext, bounds)
+        bitmapContext?.clip(to: bounds, mask: maskImage!)
+        bitmapContext?.setFillColor(color.cgColor)
+        bitmapContext?.fill(bounds)
         
-        let cImage = CGBitmapContextCreateImage(bitmapContext)
-        let coloredImage = UIImage(CGImage: cImage!)
+        let cImage = bitmapContext?.makeImage()
+        let coloredImage = UIImage(cgImage: cImage!)
         
         return coloredImage
     }
     
-    func resize(size: CGSize, color: UIColor) -> UIImage {
+    func resize(_ size: CGSize, color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         let context = UIGraphicsGetCurrentContext()
-        let rect = CGRectMake(0, 0, size.width, size.height)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
-        CGContextSetBlendMode(context, .Normal)
-        drawInRect(CGRect(origin: CGPointZero, size: size))
+        context?.setBlendMode(.normal)
+        draw(in: CGRect(origin: CGPoint.zero, size: size))
         
-        CGContextSetBlendMode(context, .SourceIn)
+        context?.setBlendMode(.sourceIn)
         color.setFill()
-        CGContextFillRect(context, rect)
+        context?.fill(rect)
 
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return scaledImage
+        return scaledImage!
     }
  
-    func resize(sizeChange:CGSize)-> UIImage {
+    func resize(_ sizeChange:CGSize)-> UIImage {
         let hasAlpha = true
         let scale: CGFloat = 0.0 // Use scale factor of main screen
         
         UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
-        drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        draw(in: CGRect(origin: CGPoint.zero, size: sizeChange))
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return scaledImage
+        return scaledImage!
     }
 }
 
 extension UIImageView {
-    func downloadedFrom(link link:String, contentMode mode: UIViewContentMode, cell: UIView) {
-        guard let url = NSURL(string: link) else { return }
+    func downloadedFrom(link:String, contentMode mode: UIViewContentMode, cell: UIView) {
+        guard let url = URL(string: link) else { return }
 
         contentMode = mode
         image = nil
         
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        guard let documentDirectory:NSURL = urls.first else { return }
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let documentDirectory:URL = urls.first else { return }
         
-        if let bundleURL = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: "") {
+        if let bundleURL = Bundle.main.url(forResource: url.lastPathComponent, withExtension: "") {
             // print("found in bundle \(link)")
-            let data = NSData(contentsOfURL: bundleURL)!
+            let data = try! Data(contentsOf: bundleURL)
             image = UIImage(data: data)
             return
         }
         
-        let localURL = documentDirectory.URLByAppendingPathComponent(url.lastPathComponent!)
+        let localURL = documentDirectory.appendingPathComponent(url.lastPathComponent)
             
-        if localURL.checkResourceIsReachableAndReturnError(nil) {
-            let data = NSData(contentsOfURL: localURL)!
+        if (localURL as NSURL).checkResourceIsReachableAndReturnError(nil) {
+            let data = try! Data(contentsOf: localURL)
             image = UIImage(data: data)
             return
         }
         
         print("loading \(link)")
         
-        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             guard
-                let httpURLResponse = response as? NSHTTPURLResponse where httpURLResponse.statusCode == 200,
-                let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
-                let data = data where error == nil,
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
                 let image = UIImage(data: data)
                 else { return }
             
-            try? data.writeToURL(localURL, options: .DataWritingWithoutOverwriting)
-            try? localURL.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
+            try? data.write(to: localURL, options: .withoutOverwriting)
+            try? (localURL as NSURL).setResourceValue(true, forKey: URLResourceKey.isExcludedFromBackupKey)
             
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            DispatchQueue.main.async { () -> Void in
                 self.image = image
                 
                 cell.setNeedsLayout()
@@ -216,9 +216,9 @@ extension UIImageView {
 
 struct Environment {
     
-    static func showNotification(title: String, subtitle: String, isError: Bool) {
+    static func showNotification(_ title: String, subtitle: String, isError: Bool) {
         
-        AJNotificationView.showNoticeInView((UIApplication.sharedApplication().delegate?.window)!,
+        AJNotificationView.showNotice(in: (UIApplication.shared.delegate?.window)!,
                                             type: isError ? AJNotificationTypeRed : AJNotificationTypeBlue,
                                             title: subtitle,
                                             linedBackground: AJLinedBackgroundTypeAnimated,

@@ -18,24 +18,24 @@ class TableViewCell : UITableViewCell, CellInterface {
     var book : BookData! {
         didSet {
             title!.text = book.title[Translate.language]
-            icon!.downloadedFrom(link: book.image, contentMode: .ScaleAspectFit, cell: self)
+            icon!.downloadedFrom(link: book.image, contentMode: .scaleAspectFit, cell: self)
 
-            progressbar.hidden = true
+            progressbar.isHidden = true
 
             if let fti = DownloadManager.fileTransferInfo(book.download_url) {
-                progressbar.hidden = false
+                progressbar.isHidden = false
                 progressbar.progress = fti.progress
             }
 
             if  let epub_url = book.epub_url,
                 let fti = DownloadManager.fileTransferInfo(epub_url) {
-                progressbar.hidden = false
+                progressbar.isHidden = false
                 progressbar.progress = fti.progress
             }
             
-            let starImage = UIImage(named: "star")?.imageWithRenderingMode(.AlwaysTemplate)
-            star.setImage(starImage, forState: .Normal)
-            star.tintColor = book.favorite ? UIColor.greenColor() : UIColor.clearColor()
+            let starImage = UIImage(named: "star")?.withRenderingMode(.alwaysTemplate)
+            star.setImage(starImage, for: UIControlState())
+            star.tintColor = book.favorite ? UIColor.green : UIColor.clear
 
         }
     }
