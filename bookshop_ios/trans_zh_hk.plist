@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Remind me later</key>
-    <string>稍後提醒我</string>
-    <key>No, thanks</key>
-    <string>不，謝謝</string>
-    <key>If you enjoy using Orthodox Library, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
-    <string>如果你喜歡使用正教圖書館，你介意花一點時間給它評分嗎？不會超過一分鐘。感謝您的支持！</string>
-    <key>Rate Orthodox Library</key>
-    <string>給正教圖書館評分</string>
+	<key>Remind me later</key>
+	<string>稍後提醒我</string>
+	<key>No, thanks</key>
+	<string>不，謝謝</string>
+	<key>If you enjoy using Orthodox Library, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
+	<string>如果你喜歡使用正教圖書館，你介意花一點時間給它評分嗎？不會超過一分鐘。感謝您的支持！</string>
+	<key>Rate Orthodox Library</key>
+	<string>給正教圖書館評分</string>
 	<key>Done</key>
 	<string>完成</string>
 	<key>No books in this folder</key>
@@ -26,8 +26,8 @@
 	<string>书 已下載</string>
 	<key>Cancel</key>
 	<string>取消</string>
-	<key>(C) 2016 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.</key>
-	<string>(C) 2016 香港聖彼得聖保羅教堂</string>
+	<key>(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.</key>
+	<string>(C) 2017 香港聖彼得聖保羅教堂</string>
 	<key>Options</key>
 	<string>設置</string>
 	<key>Author</key>

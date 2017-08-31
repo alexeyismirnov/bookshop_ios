@@ -14,6 +14,11 @@
 		8A1183EC1CBB942B00AA7C3E /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1183EB1CBB942B00AA7C3E /* PopoverViewController.swift */; };
 		8A20DF061CBDE6AB0087751D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20DF051CBDE6AB0087751D /* DownloadManager.swift */; };
 		8A20DF0B1CBE4F320087751D /* PreviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20DF0A1CBE4F320087751D /* PreviewManager.swift */; };
+		8A2F4F581F57B48F007C00A4 /* Obl_ep.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F4F531F57B48F007C00A4 /* Obl_ep.JPG */; };
+		8A2F4F591F57B48F007C00A4 /* petrkam1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F4F541F57B48F007C00A4 /* petrkam1.jpg */; };
+		8A2F4F5A1F57B48F007C00A4 /* score.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F4F551F57B48F007C00A4 /* score.jpg */; };
+		8A2F4F5B1F57B48F007C00A4 /* Seraphim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F4F561F57B48F007C00A4 /* Seraphim.jpg */; };
+		8A2F4F5C1F57B48F007C00A4 /* Transfiguration.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F4F571F57B48F007C00A4 /* Transfiguration.jpg */; };
 		8A33B38D1CC381AC003D6CE0 /* trans_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */; };
 		8A33B38F1CC38785003D6CE0 /* trans_zh_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */; };
 		8A33B3911CC387B7003D6CE0 /* trans_zh_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */; };
@@ -120,6 +125,11 @@
 		8A1183EB1CBB942B00AA7C3E /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		8A20DF051CBDE6AB0087751D /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		8A20DF0A1CBE4F320087751D /* PreviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewManager.swift; sourceTree = "<group>"; };
+		8A2F4F531F57B48F007C00A4 /* Obl_ep.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Obl_ep.JPG; sourceTree = "<group>"; };
+		8A2F4F541F57B48F007C00A4 /* petrkam1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petrkam1.jpg; sourceTree = "<group>"; };
+		8A2F4F551F57B48F007C00A4 /* score.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = score.jpg; sourceTree = "<group>"; };
+		8A2F4F561F57B48F007C00A4 /* Seraphim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Seraphim.jpg; sourceTree = "<group>"; };
+		8A2F4F571F57B48F007C00A4 /* Transfiguration.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Transfiguration.jpg; sourceTree = "<group>"; };
 		8A33B38C1CC381AC003D6CE0 /* trans_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ru.plist; sourceTree = "<group>"; };
 		8A33B38E1CC38785003D6CE0 /* trans_zh_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_cn.plist; sourceTree = "<group>"; };
 		8A33B3901CC387B7003D6CE0 /* trans_zh_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_zh_hk.plist; sourceTree = "<group>"; };
@@ -255,6 +265,11 @@
 		8A402D871CC61D4F007FA8A6 /* covers */ = {
 			isa = PBXGroup;
 			children = (
+				8A2F4F531F57B48F007C00A4 /* Obl_ep.JPG */,
+				8A2F4F541F57B48F007C00A4 /* petrkam1.jpg */,
+				8A2F4F551F57B48F007C00A4 /* score.jpg */,
+				8A2F4F561F57B48F007C00A4 /* Seraphim.jpg */,
+				8A2F4F571F57B48F007C00A4 /* Transfiguration.jpg */,
 				8A3960B61CCA0EF9002F693B /* prayerbookSimpl.jpg */,
 				8A3960B71CCA0EF9002F693B /* PrayerbookTrad.jpg */,
 				8A402D881CC61DAD007FA8A6 /* baptism1.jpg */,
@@ -474,6 +489,7 @@
 			files = (
 				8AE53C451CAA2C00005BFA1B /* library.pdf in Resources */,
 				8A402D831CC5DB43007FA8A6 /* bookshop87.png in Resources */,
+				8A2F4F591F57B48F007C00A4 /* petrkam1.jpg in Resources */,
 				8A546AEE1CB74CC20090CFDA /* flag_us.pdf in Resources */,
 				8A50B2231CCDFC20001AEC27 /* bookshop1024.jpg in Resources */,
 				8A402DB61CC61DAD007FA8A6 /* MatinsFrstHr_Cover.jpg in Resources */,
@@ -504,6 +520,7 @@
 				8A402DB91CC61DAD007FA8A6 /* oblog_ispoved.jpg in Resources */,
 				8A402D851CC5DB43007FA8A6 /* bookshop152.png in Resources */,
 				8A402D6C1CC5D4A7007FA8A6 /* launch-hd5.5-landscape.png in Resources */,
+				8A2F4F5A1F57B48F007C00A4 /* score.jpg in Resources */,
 				8AE53C361CAA1C73005BFA1B /* Assets.xcassets in Resources */,
 				8A402DB11CC61DAD007FA8A6 /* leaflets.jpg in Resources */,
 				8A402DB41CC61DAD007FA8A6 /* LiturgyCover.jpg in Resources */,
@@ -513,6 +530,7 @@
 				8A402DBB1CC61DAD007FA8A6 /* obloga_ob5.jpg in Resources */,
 				8A402D801CC5DB43007FA8A6 /* bookshop58.png in Resources */,
 				8A402D6F1CC5D4A7007FA8A6 /* launch-ipad@2x.png in Resources */,
+				8A2F4F5C1F57B48F007C00A4 /* Transfiguration.jpg in Resources */,
 				8A402DAE1CC61DAD007FA8A6 /* HOURS_Cover.jpg in Resources */,
 				8A402DC31CC61DAD007FA8A6 /* thanks1.jpg in Resources */,
 				8A402D7E1CC5DB43007FA8A6 /* bookshop29.png in Resources */,
@@ -528,6 +546,7 @@
 				8A546AF41CB74F4D0090CFDA /* flag_ru.pdf in Resources */,
 				8A670FC81CBCE84800B27365 /* book_epub.pdf in Resources */,
 				8A402DB51CC61DAD007FA8A6 /* maria1.jpg in Resources */,
+				8A2F4F581F57B48F007C00A4 /* Obl_ep.JPG in Resources */,
 				8A670FCE1CBCEF3A00B27365 /* menu_star.pdf in Resources */,
 				8A546AF31CB74F4D0090CFDA /* flag_hk.pdf in Resources */,
 				8A465CC51CC4B8E800153973 /* stop.pdf in Resources */,
@@ -537,6 +556,7 @@
 				8A402DC21CC61DAD007FA8A6 /* sysoev2.jpg in Resources */,
 				8A402DC71CC61DAD007FA8A6 /* Zhitia_optin1.jpg in Resources */,
 				8A0096091CB2555F005A2980 /* view_grid.pdf in Resources */,
+				8A2F4F5B1F57B48F007C00A4 /* Seraphim.jpg in Resources */,
 				8A402DBF1CC61DAD007FA8A6 /* simeon1.jpg in Resources */,
 				8A402DAA1CC61DAD007FA8A6 /* cover_ru1.jpg in Resources */,
 				8AE53C471CAA2C32005BFA1B /* options.pdf in Resources */,

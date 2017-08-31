@@ -61,7 +61,7 @@ class OptionsViewController : UITableViewController {
             return Translate.s("Language")
             
         } else if section == 2  {
-            return Translate.s("(C) 2016 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.")
+            return Translate.s("(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.")
         }
         
         return nil
